@@ -41,8 +41,8 @@ def main():
     config = Config.from_env()
     if not (os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")):
         parser.error("GEMINI_API_KEY or GOOGLE_API_KEY is required")
-    if config.budget_usd > 10:
-        parser.error("This public verification runner is limited to RUN_BUDGET_USD <= 10")
+    # Live paid requests; the configured cap is the only spending limit and is reported, not clamped.
+    print(json.dumps({"run_budget_usd": config.budget_usd}), flush=True)
     folder = (args.run_dir or ROOT / "out/docker-e2e" / datetime.now(ZoneInfo("Europe/Madrid")).strftime("%Y%m%d-%H%M%S")).resolve()
     folder.mkdir(parents=True, exist_ok=True)
     image_id = subprocess.check_output(["docker", "image", "inspect", "--format", "{{.Id}}", args.image], text=True).strip()
