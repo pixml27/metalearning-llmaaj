@@ -12,4 +12,9 @@ __pycache__/
 /runs/
 /out/
 /dist/
+/artifacts/
+/output/
 *.egg-info/
+/experiments/**/runs/
+/experiments/**/.budget.jsonl
+/experiments/**/.run.lock

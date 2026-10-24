@@ -1,0 +1,75 @@
+{
+  "status": "complete",
+  "completed": 150,
+  "total": 150,
+  "analysis": {
+    "api_responses": 150,
+    "cost_usd_estimated": 0.5829562500000001,
+    "response_models": [
+      "gemini-3.8-flash"
+    ],
+    "input_tokens": 146630,
+    "output_tokens": 126129
+  },
+  "analysis_reused_from": "/Users/akor/Work/Plata/metalearning-llmaaj/experiments/exp1/artifacts/20261024-public-original",
+  "analysis_new_api_calls": 0,
+  "synthesis": {
+    "api_responses": 1,
+    "cost_usd_estimated": 0.119886,
+    "response_models": [
+      "gemini-4-argon"
+    ],
+    "input_tokens": 40833,
+    "output_tokens": 3822
+  },
+  "cost_usd_estimated": 0.7028422500000001,
+  "cost_usd_estimated_new": 0.119886,
+  "cost_note": "Equivalent adaptation cost: exp1 train analyses reused without new API calls plus this synthesis",
+  "artifact_sha256": "c37e266953df0860caf37f306c4e6fc869003224c1cb9bab15256cde66be8cfe",
+  "routed_prompts_sha256": "8ba7aad3a6c3027822ef5fdf6c9c2227a1f6b7feb469a83917c249a6f35247f2",
+  "definitions_sha256": "9cee72ba700a6e77b2e3156161056463d4b50f074ceef5ad3f02284955fc892f",
+  "structure_check": {
+    "sections_present": {
+      "TASK": true,
+      "CRITERIA": true,
+      "PRIORITY": true,
+      "BOUNDARIES": true,
+      "EXAMPLES": true
+    },
+    "cited_case_prefixes": 20,
+    "unmatched_id_like_tokens": [],
+    "definition_codes_in_base_prompt": [
+      "D1",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "D8",
+      "D9",
+      "D10",
+      "D11",
+      "D12",
+      "D13",
+      "D14",
+      "D15"
+    ],
+    "definition_lines_restated_verbatim": [],
+    "base_prompt_words": 1024,
+    "topic_advice_words": {
+      "credit": 201,
+      "financial_position": 227,
+      "savings": 219,
+      "spending": 230
+    }
+  },
+  "rubric_selfcheck": {
+    "clear_criteria": "Satisfied in CRITERIA (C1–C5), where each criterion explicitly lists the data/D-codes it reads, exact decidable conditions for violations, and what is explicitly tolerated.",
+    "clear_priorities": "Satisfied in PRIORITY, which defines the evaluation order (C1 -> C2 -> C3 -> C4 -> C5), the one-violation override rule, conflict resolution when user prompts clash with C1/C2 accounting facts, and the default \"good\" label.",
+    "links_to_training_examples": "Satisfied in EXAMPLES and BOUNDARIES, citing 15 real 8-character training IDs (e.g., 04b71730, 0ae6aa45, 0eea79a6, 13120e9df, 1947acad, 1bedba83, 284db98e, c09ec6bd) with gold labels, figures, and C-numbers.",
+    "clear_boundaries": "Satisfied in BOUNDARIES (B1–B3), which details ambiguous training regions (unstated MXN currency, all-time vs. bounded multi-month totals, and platform deep links) with contrasting training IDs and explicit decision rules.",
+    "consistency_with_implementation": "Satisfied across base_prompt and topic_advice: the exact C1–C5 rules, priorities, boundary resolutions, and D1–D15 references form the working judge prompt directly."
+  },
+  "accounted_entire_experiment_usd": 0.119886,
+  "updated_at": "2026-10-24T13:06:32.079116+00:00"
+}

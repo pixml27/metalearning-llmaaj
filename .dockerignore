@@ -1,0 +1,17 @@
+# Allow only files required by the runnable solution.
+**
+!Dockerfile
+!requirements.lock.txt
+!solution/
+solution/**
+!solution/*.py
+!solution/prompts/
+solution/prompts/**
+!solution/prompts/*.md
+!src/
+src/**
+!src/common.py
+# Keep credentials and bytecode excluded even beneath an allowed directory.
+**/.env*
+**/__pycache__
+**/*.pyc

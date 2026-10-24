@@ -1,0 +1,46 @@
+{
+  "experiment": "exp1",
+  "dataset_split": "train",
+  "n": 150,
+  "language": "original",
+  "settings": {
+    "model": "gemini/gemini-flash-latest",
+    "budget_usd": 10.0,
+    "max_output_tokens": 2048,
+    "timeout_seconds": 120.0,
+    "temperature": 0.0
+  },
+  "prices": {
+    "input_usd_per_token_upper": 1.35e-06,
+    "output_usd_per_token_upper": 6.75e-06,
+    "source": "installed LiteLLM model cost map; estimate, not a provider invoice"
+  },
+  "packages": {
+    "litellm": "1.106.3",
+    "pydantic-ai-litellm": "0.2.8",
+    "pydantic-ai-slim": "2.61.0",
+    "pydantic": "2.14.1",
+    "python-dotenv": "1.2.4"
+  },
+  "dataset_path": "/Users/akor/Work/Plata/metalearning-llmaaj/data/public_train.csv",
+  "test_sha256": "aedc2d323699a9ce41a0c0d3423297cdaa3dc8fd3ec9b0e965b9fbd5a84cccd5",
+  "prompt_sha256": "5d9609be07d7a04d8d9382fc6860d941c7a685f9a94c5000c6352e20cc916f14",
+  "artifact_directory": "/Users/akor/Work/Plata/metalearning-llmaaj/experiments/exp1/artifacts/20261024-public-original",
+  "artifact_sha256": "d9b4dde7470a844ad8c4f29d734400dc3ec38270487ff916a9f93c1a7ba6096f",
+  "adaptation_manifest_sha256": "363dbeda8b5c6c66fdfa57fe609797ff65d3f5b8dc13c01158617eb6cd1ffff3",
+  "analysis_table_sha256": "28afb858b9fe589a8f83b65d5fef2251a37ad8eb328ae519572dc22182505c65",
+  "routed_prompts_sha256": "1a0316e0fee86a6dd1089f06f2868250d739123db31123965812b850552edbe8",
+  "routing": "provided topic -> base prompt + advice for exactly that topic",
+  "source_sha256": {
+    "experiments/exp1/__init__.py": "fd1f1f6dbed5882401c7ec92f259caa523383f6e5c71cc55e5100a161e81c10a",
+    "experiments/exp1/common.py": "3334dd60aa0bfe36d5c86857063ba32fd61c28fb94b8d204b443f87a8bb89a01",
+    "experiments/exp1/infer.py": "f5822e1092f63b263150bfe9eec6724c57f7fa808e940dbdfd5155f7fc4895ca",
+    "experiments/exp1/train.py": "64451c70550a2628b5d6f0f50f0f4c6b311ed0dd7ebff65f7a594f55f637bc69",
+    "experiments/llm.py": "10556678b48a33b47b11f72e5bf7b60c349a91bf92da0f7989d81073e38237bc",
+    "src/common.py": "c5b915c28294f751ac2a65556971620a89e95486361ea97adc0073b444622442",
+    "src/evaluate.py": "b78193b9999ff06e9a8e467233f93143386ef81279f4aca3037dcc95ed59270e",
+    "src/prepare_inputs.py": "da279e48d9826911775135df948514d26867b108f714bd4a4fb92dc84a730026"
+  },
+  "config_sha256": "0148e26a12eb3a07e3792b4cc7d2e0a0f03304454f6159c174b5ba5bfa89877a",
+  "created_at": "2026-10-24T12:09:22.066745+00:00"
+}

@@ -1,0 +1,73 @@
+{
+  "experiment": "exp1",
+  "dataset_split": "train",
+  "n": 150,
+  "language": "original",
+  "train_sha256": "aedc2d323699a9ce41a0c0d3423297cdaa3dc8fd3ec9b0e965b9fbd5a84cccd5",
+  "baseline_predictions_sha256": "a8909be6893f1792765911f792e910d9ea3f5749bcf4d78bef4ab87683ab3eb7",
+  "baseline_manifest_sha256": "b0630af8a7cd09dddc4f58bd2b4cdb7f8afdb0b1cbc887b45002756894e944d5",
+  "baseline_prompt_sha256": "4edf31d028534fe04601699665acca68a337d7da282ffdbbd4df784edb0ec48b",
+  "analysis_prompt_sha256": "35725d4e8d681fdaf3bd10baed1db05edbc5e99e817679a34c6d07bd1751b955",
+  "synthesis_prompt_sha256": "f03478b62de3e6724b8f6ce5ab831be54df8e83da7d1760bdacbae6da884f70f",
+  "settings": {
+    "analysis": {
+      "model": "gemini/gemini-flash-latest",
+      "budget_usd": 10.0,
+      "max_output_tokens": 3072,
+      "timeout_seconds": 120.0,
+      "temperature": 0.0
+    },
+    "synthesis": {
+      "model": "gemini/gemini-4-argon",
+      "budget_usd": 10.0,
+      "max_output_tokens": 32768,
+      "timeout_seconds": 900.0,
+      "temperature": 0.0
+    },
+    "inference": {
+      "model": "gemini/gemini-flash-latest",
+      "budget_usd": 10.0,
+      "max_output_tokens": 2048,
+      "timeout_seconds": 120.0,
+      "temperature": 0.0
+    }
+  },
+  "prices": {
+    "analysis": {
+      "input_usd_per_token_upper": 1.35e-06,
+      "output_usd_per_token_upper": 6.75e-06,
+      "source": "installed LiteLLM model cost map; estimate, not a provider invoice"
+    },
+    "synthesis": {
+      "input_usd_per_token_upper": 3.6e-06,
+      "output_usd_per_token_upper": 1.8e-05,
+      "source": "installed LiteLLM model cost map; estimate, not a provider invoice"
+    },
+    "inference": {
+      "input_usd_per_token_upper": 1.35e-06,
+      "output_usd_per_token_upper": 6.75e-06,
+      "source": "installed LiteLLM model cost map; estimate, not a provider invoice"
+    }
+  },
+  "concurrency": 3,
+  "request_interval_seconds": 4.1,
+  "source_sha256": {
+    "experiments/exp1/__init__.py": "fd1f1f6dbed5882401c7ec92f259caa523383f6e5c71cc55e5100a161e81c10a",
+    "experiments/exp1/common.py": "3334dd60aa0bfe36d5c86857063ba32fd61c28fb94b8d204b443f87a8bb89a01",
+    "experiments/exp1/infer.py": "a6795aa89cfd03a336ac2722070082c88a1b5e33143c7f33ca0a13f78ade77c3",
+    "experiments/exp1/train.py": "64451c70550a2628b5d6f0f50f0f4c6b311ed0dd7ebff65f7a594f55f637bc69",
+    "experiments/llm.py": "10556678b48a33b47b11f72e5bf7b60c349a91bf92da0f7989d81073e38237bc",
+    "src/common.py": "c5b915c28294f751ac2a65556971620a89e95486361ea97adc0073b444622442",
+    "src/evaluate.py": "b78193b9999ff06e9a8e467233f93143386ef81279f4aca3037dcc95ed59270e",
+    "src/prepare_inputs.py": "da279e48d9826911775135df948514d26867b108f714bd4a4fb92dc84a730026"
+  },
+  "packages": {
+    "litellm": "1.106.3",
+    "pydantic-ai-litellm": "0.2.8",
+    "pydantic-ai-slim": "2.61.0",
+    "pydantic": "2.14.1",
+    "python-dotenv": "1.2.4"
+  },
+  "config_sha256": "5440b663a29a3d5ca27d0b25d97a4920b13031c101fd5419fc7ad40d1de8260a",
+  "created_at": "2026-10-24T11:47:30.262714+00:00"
+}

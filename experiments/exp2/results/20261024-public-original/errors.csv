@@ -1,0 +1,8 @@
+item_id,topic,gold,prediction
+022c98047e7fb11e67a6bc2d41ad33ae,spending,good,bad
+2881d8466e9762a8d467f02d48087a33,spending,bad,good
+96ec861ade4098aa0ec0ba750b4f5917,spending,good,bad
+b57678e000563542b03e3ced2b2940b9,financial_position,bad,good
+b8c0743fdbdfc637c00690600768386e,financial_position,good,bad
+da25638dffea1b422d9590aa198d7bb1,financial_position,good,bad
+f4ee425b3c7f702b7f378139a01b78f2,spending,good,bad

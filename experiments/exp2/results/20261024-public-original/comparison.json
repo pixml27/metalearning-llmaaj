@@ -1,0 +1,69 @@
+{
+  "dataset_split": "test",
+  "macro_topic_accuracy": {
+    "baseline": 0.7972496706192358,
+    "exp1": 0.9229249011857708,
+    "exp2": 0.9224308300395256
+  },
+  "accuracy": {
+    "baseline": 0.7875,
+    "exp1": 0.9125,
+    "exp2": 0.9125
+  },
+  "delta_macro_topic_accuracy_vs_baseline": 0.12518115942028984,
+  "delta_macro_topic_accuracy_vs_exp1": -0.000494071146245112,
+  "paired_outcomes_vs_baseline": {
+    "both_correct": 61,
+    "both_wrong": 5,
+    "new_error": 2,
+    "fixed_baseline_error": 12
+  },
+  "paired_outcomes_vs_exp1": {
+    "both_correct": 72,
+    "both_wrong": 6,
+    "fixed_exp1_error": 1,
+    "new_error": 1
+  },
+  "by_topic": {
+    "credit": {
+      "baseline": 0.8666666666666667,
+      "exp1": 1.0,
+      "exp2": 1.0,
+      "correct_exp2": "15/15",
+      "paired_outcomes_vs_exp1": {
+        "both_correct": 15
+      }
+    },
+    "financial_position": {
+      "baseline": 0.8636363636363636,
+      "exp1": 0.9090909090909091,
+      "exp2": 0.8636363636363636,
+      "correct_exp2": "19/22",
+      "paired_outcomes_vs_exp1": {
+        "both_correct": 19,
+        "both_wrong": 2,
+        "new_error": 1
+      }
+    },
+    "savings": {
+      "baseline": 0.85,
+      "exp1": 1.0,
+      "exp2": 1.0,
+      "correct_exp2": "20/20",
+      "paired_outcomes_vs_exp1": {
+        "both_correct": 20
+      }
+    },
+    "spending": {
+      "baseline": 0.6086956521739131,
+      "exp1": 0.782608695652174,
+      "exp2": 0.8260869565217391,
+      "correct_exp2": "19/23",
+      "paired_outcomes_vs_exp1": {
+        "both_wrong": 4,
+        "both_correct": 18,
+        "fixed_exp1_error": 1
+      }
+    }
+  }
+}

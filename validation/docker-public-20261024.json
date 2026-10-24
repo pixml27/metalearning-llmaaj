@@ -1,0 +1,292 @@
+{
+  "date": "2026-10-24",
+  "status": "complete",
+  "platform": "linux/arm64",
+  "image_tag": "metalearning-judge:e2e-20261024",
+  "run_manifest": {
+    "image_id": "sha256:aac071dc8885d17394fe7fa454a49f7974b0bd60a4f70c35fbe11f4436f55132",
+    "config": {
+      "inference": {
+        "model": "gemini/gemini-flash-latest",
+        "max_output_tokens": 2048,
+        "timeout_seconds": 120.0,
+        "temperature": 0.0
+      },
+      "analysis": {
+        "model": "gemini/gemini-flash-latest",
+        "max_output_tokens": 3072,
+        "timeout_seconds": 120.0,
+        "temperature": 0.0
+      },
+      "synthesis": {
+        "model": "gemini/gemini-4-argon",
+        "max_output_tokens": 32768,
+        "timeout_seconds": 900.0,
+        "temperature": 0.0
+      },
+      "explanation": {
+        "model": "gemini/gemini-4-argon",
+        "max_output_tokens": 16384,
+        "timeout_seconds": 900.0,
+        "temperature": 0.0
+      },
+      "budget_usd": 10.0,
+      "concurrency": 3,
+      "request_interval_seconds": 4.1
+    },
+    "language": "original",
+    "dataset": "public",
+    "train_csv_sha256": "aedc2d323699a9ce41a0c0d3423297cdaa3dc8fd3ec9b0e965b9fbd5a84cccd5",
+    "test_csv_sha256": "2554cc2cd86577d2c34317df2bca7d1f4b763d6a5d1e116c48b1832f52f2fbc9"
+  },
+  "runtime": {
+    "python": "3.12.15",
+    "packages": {
+      "litellm": "1.106.3",
+      "pydantic-ai-litellm": "0.2.8",
+      "pydantic-ai-slim": "2.61.0",
+      "pydantic": "2.14.1",
+      "python-dotenv": "1.2.4"
+    },
+    "sources": {
+      "requirements.lock.txt": "ac18529c16ffa55650bfe23fe7c7c1ecf30e38f9c35dbc86aa9c7f963c58f0fd",
+      "solution/__init__.py": "f6267efc575a60e07396f1ace4dd032b9d9ecbff19de3607a054f08aa0f42961",
+      "solution/__main__.py": "32bf27af731943efafc61ecbbd6d83548177df67eb8c776576b56e83659548f7",
+      "solution/adapt.py": "fc415222f0e01b6f8588175d1d77dd344b457eabc1fa8e2632814e5fd9fa3cae",
+      "solution/common.py": "effedf00036e564ea92eed1c8cc130279f2d5fe0ca7368140bb309e2183a61b2",
+      "solution/config.py": "48faad7ae1f6e3c9808d0f9ce552f6c97ec94cfe3369dc227694e90dc7684687",
+      "solution/eval.py": "beac462b47ddece2140617d47170a4e06ebdfffa834c384bfcaac52a4385e60e",
+      "solution/explanation.py": "f01ba1beaea56f1250e8226559b0d034ba68fac2572e039c779fb89e37d9e072",
+      "solution/llm.py": "31abb06b7723dd8b37fd24ae68ed66e00184a0ba5c2cb6b639b9b5387e414c3c",
+      "solution/prompts/analysis.md": "feb6197296602ef717d1e2609faed8086c660858e69bfd261bdb621dca0d8e8d",
+      "solution/prompts/baseline.md": "1b5f05a115f91948ce2842b4940ef5b4b46e11d33cf38dc706c9357ec7e2700d",
+      "solution/prompts/explanation.md": "486ad10f096e5323a716a1c820cf7cc29261167f6850821efe21c3fbd8508e4c",
+      "solution/prompts/synthesis.md": "07feef99c814d68ef46717779627d52292c7e2309c625373c2003bf22d94bcc5",
+      "src/common.py": "c5b915c28294f751ac2a65556971620a89e95486361ea97adc0073b444622442"
+    }
+  },
+  "docker_build": "passed",
+  "docker_offline_tests": {
+    "passed": 17,
+    "failed": 0,
+    "network": "none"
+  },
+  "live_request_counts": {
+    "artifacts/explanation_calls.jsonl": 1,
+    "artifacts/baseline_calls.jsonl": 150,
+    "artifacts/analysis_calls.jsonl": 150,
+    "artifacts/synthesis_calls.jsonl": 1,
+    "output/inference_calls.jsonl": 80
+  },
+  "live_attempts": 382,
+  "live_errors": 0,
+  "test_only_input_mount": true,
+  "artifacts_read_only_during_eval": true,
+  "artifacts_unchanged": true,
+  "restart_verification": {
+    "new_api_attempts": 0,
+    "request_counts_unchanged": true,
+    "predictions_unchanged": true
+  },
+  "score": {
+    "n": 80,
+    "correct": 70,
+    "accuracy": 0.875,
+    "kappa": 0.7435897435897436,
+    "confusion_matrix": [
+      [
+        42,
+        8
+      ],
+      [
+        2,
+        28
+      ]
+    ],
+    "primary_metric": "macro_topic_accuracy",
+    "score": 0.8850131752305666,
+    "macro_topic_accuracy": 0.8850131752305666,
+    "macro_topic_kappa": 0.769345067373275,
+    "confusion_matrix_order": [
+      "good",
+      "bad"
+    ],
+    "by_topic": {
+      "credit": {
+        "n": 15,
+        "correct": 14,
+        "accuracy": 0.9333333333333333,
+        "kappa": 0.8648648648648649,
+        "confusion_matrix": [
+          [
+            8,
+            1
+          ],
+          [
+            0,
+            6
+          ]
+        ]
+      },
+      "financial_position": {
+        "n": 22,
+        "correct": 21,
+        "accuracy": 0.9545454545454546,
+        "kappa": 0.8990825688073395,
+        "confusion_matrix": [
+          [
+            14,
+            1
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      },
+      "savings": {
+        "n": 20,
+        "correct": 20,
+        "accuracy": 1.0,
+        "kappa": 1.0,
+        "confusion_matrix": [
+          [
+            14,
+            0
+          ],
+          [
+            0,
+            6
+          ]
+        ]
+      },
+      "spending": {
+        "n": 23,
+        "correct": 15,
+        "accuracy": 0.6521739130434783,
+        "kappa": 0.3134328358208956,
+        "confusion_matrix": [
+          [
+            6,
+            6
+          ],
+          [
+            2,
+            9
+          ]
+        ]
+      }
+    }
+  },
+  "adaptation": {
+    "status": "complete",
+    "artifact_version": 1,
+    "train_examples": 150,
+    "inference_settings": {
+      "model": "gemini/gemini-flash-latest",
+      "max_output_tokens": 2048,
+      "timeout_seconds": 120.0,
+      "temperature": 0.0
+    },
+    "stages": {
+      "analysis": {
+        "attempts": 150,
+        "response_models": [
+          "gemini-3.8-flash"
+        ],
+        "cost_usd_estimated": 0.569196,
+        "input_tokens": 146633,
+        "output_tokens": 122459
+      },
+      "baseline": {
+        "attempts": 150,
+        "response_models": [
+          "gemini-3.8-flash"
+        ],
+        "cost_usd_estimated": 0.3499065,
+        "input_tokens": 86937,
+        "output_tokens": 75921
+      },
+      "explanation": {
+        "attempts": 1,
+        "response_models": [
+          "gemini-4-argon"
+        ],
+        "cost_usd_estimated": 0.15537,
+        "input_tokens": 40815,
+        "output_tokens": 7374
+      },
+      "synthesis": {
+        "attempts": 1,
+        "response_models": [
+          "gemini-4-argon"
+        ],
+        "cost_usd_estimated": 0.093192,
+        "input_tokens": 39416,
+        "output_tokens": 1436
+      }
+    },
+    "accounted_usd": 1.1676645,
+    "budget_usd": 10.0,
+    "files_sha256": {
+      "artifact.json": "87bfb958cabb038de4685ddb7430a4ab6d3f995bebd320b3d166418a1938f147",
+      "routed_prompts.json": "f8e0fb714cbd061efec84952f4ca3776d429c51c2a748012d568c31d54bf901e",
+      "explanation.json": "20622e5e19bc289b62a0e5ac3c009c4e69cb4e5e4e27781ab991d4e172cfeec1",
+      "explanation.md": "1c09da808c1463d57297525b4f69444e5963c4675f902fe68c133e3f8283d3d0",
+      "manifest.json": "9bde0d044d4d6400a097653624f17a6bb5af9cccffc692e3918df72bd6f26657",
+      "analyses.jsonl": "2aa4f87dec5899ad2cd162fdb45ac652f6efa70ace22a0219787bf81d6c83fc4",
+      "baseline_predictions.csv": "e8da9d520b4cd6a9d63e49a1c8523782e7b3380191e5bd028c6c38e200a59621",
+      "budget.jsonl": "e62871ee3fbaad2fef1f0ac5718b5d3805b5c626d68120843d63b47ad6fa5045"
+    },
+    "completed_at": "2026-10-24T14:13:23.439504+00:00"
+  },
+  "inference": {
+    "status": "complete",
+    "artifact_version": 1,
+    "test_examples": 80,
+    "artifact_sha256": "87bfb958cabb038de4685ddb7430a4ab6d3f995bebd320b3d166418a1938f147",
+    "stages": {
+      "inference": {
+        "attempts": 80,
+        "response_models": [
+          "gemini-3.8-flash"
+        ],
+        "cost_usd_estimated": 0.19971975,
+        "input_tokens": 83373,
+        "output_tokens": 36584
+      }
+    },
+    "inference_accounted_usd": 0.19971975,
+    "adaptation_accounted_usd": 1.1676645,
+    "pipeline_accounted_usd": 1.3673842500000002,
+    "budget_usd": 10.0,
+    "predictions_sha256": "e6116a55653fb22fe1a7a11f440a6d47dea8c22fb8d2f74beae624b3ce78cc37",
+    "completed_at": "2026-10-24T14:19:46.931130+00:00"
+  },
+  "explanation_validation": {
+    "criteria": 12,
+    "boundaries": 5,
+    "referenced_real_train_examples": 73,
+    "evidence_topics": [
+      "credit",
+      "financial_position",
+      "savings",
+      "spending"
+    ],
+    "evidence_labels": [
+      "bad",
+      "good"
+    ],
+    "exact_prompt_quotes_and_ids_valid": true
+  },
+  "previous_exp1": {
+    "macro_topic_accuracy": 0.9229249011857708,
+    "correct": 73,
+    "new_minus_previous_macro_topic_accuracy": -0.0379117259552042,
+    "same_prompt_templates": true,
+    "learned_artifact_differs": true,
+    "note": "A fresh baseline, analysis and synthesis were run. The cause of the quality difference is not isolated."
+  },
+  "scorer_sha256": "b78193b9999ff06e9a8e467233f93143386ef81279f4aca3037dcc95ed59270e",
+  "local_run_directory": "out/docker-e2e/20261024-public-original"
+}

@@ -162,3 +162,133 @@ The interpretability score **`I` ranges from 0 to 5** and is the sum of five bin
 ```sh
 python3 -m unittest discover -s src -p 'test_*.py'
 ```
+
+## Experiments
+
+Compare completed public runs in [experiments/RESULTS.md](experiments/RESULTS.md).
+
+- [baseline](experiments/baseline/README.md): zero-shot judge using Gemini Flash.
+- [baseline_gemma](experiments/baseline_gemma/README.md): the identical prompt and parameters using **Gemma 4 (`gemma-4-26b-a4b-it`) through the Gemini API**, integrated via LiteLLM and Pydantic-AI. The API call is in [experiments/llm.py](experiments/llm.py); LiteLLM selects the Gemini API with `gemini/gemma-4-26b-a4b-it` and `GEMINI_API_KEY`.
+
+The comparison table is regenerated after every complete baseline run. See [experiments/README.md](experiments/README.md) for setup and experiment conventions.
+
+## Runnable solution: exp3 prompt pipeline
+
+The standalone implementation is in `solution/`. It retains the baseline and A/B analysis stages from exp1 and uses the exp3 seed, fixed definitions, synthesis with training evidence and a second request that removes evidence from the prediction prompts. It runs from a fresh training set without saved experiment results. An additional explanation stage documents the learned prompts for the jury without changing them. The earlier exp1-based Docker run on 24 October 2026 achieved public `macro_topic_accuracy = 0.885013` and accuracy 87.5% (70/80); those numbers do not evaluate this updated pipeline. See [E2E_RESULTS.md](E2E_RESULTS.md) for that historical run.
+
+`adapt` performs five stages:
+
+1. The configured judge (`MODEL`, Flash by default) predicts every training example without seeing its expert label.
+2. `ANALYSIS_MODEL` analyzes every training example, including correct predictions, using its expert label and baseline prediction. A explains the agreement or error; B identifies a conditional lesson for its topic.
+3. `SYNTHESIS_MODEL` (Argon by default) receives the exp3 seed, fixed definitions D1–D14 and the complete A/B table. It produces criteria, priorities, boundaries and advice for all four topics, with inline links to training evidence.
+4. The same synthesis model removes only evidence spans in a separate request. Offline reports check links, remaining training IDs and preservation of rules; remaining evidence stops adaptation. Both versions and the definitions are saved and hashed.
+5. `EXPLANATION_MODEL` documents criteria, priorities, evidence and boundaries. Exact prompt quotes and training IDs are validated. The renderer appends the original referenced training conversations, context and labels, plus all deployed prompt text.
+
+`eval` selects the saved advice using each example's supplied `topic`, appends it after the shared prompt and fixed definitions, and calls the judge with only `context` and the complete `conversation`. Native structured output is validated as exactly `{"label":"good"}` or `{"label":"bad"}`. It does not read the training file or call a scorer. It writes a complete `predictions.csv` only after every prediction succeeds; failures never become default labels. The command interface is unchanged. Artifact version 2 requires a fresh adaptation; old exp1 artifacts are rejected.
+
+### Configuration and dependencies
+
+Use Python 3.12. From the repository root:
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.lock.txt
+cp .env.example .env
+# Set GEMINI_API_KEY in .env before making live requests.
+```
+
+If `.env` already exists, add the settings you need without replacing it. `requirements.txt` lists direct dependencies; `requirements.lock.txt` pins the full dependency set used by Docker.
+
+Configuration precedence is the process environment, `solution/.env`, repository `.env`, then workspace `../.env`. No experiment `.env` files are read. The key is passed to LiteLLM through the environment and is never written to manifests. `.env.example` documents all settings. Keep the same judge model and inference parameters for `adapt` and `eval`; a mismatch is rejected. Language selection happens in `src/prepare_inputs.py` before either command.
+
+`RUN_BUDGET_USD` defaults to 10 and covers adaptation plus one evaluation, including failed attempts and resumed requests. Prices come from the pinned LiteLLM snapshot; they are estimates, not invoices. Each stage estimates pending requests before execution. Unknown prices stop execution. Requests have explicit token/time limits. `MAX_CONCURRENCY` and `REQUEST_INTERVAL_SECONDS` control simultaneous requests and spacing between request starts.
+
+A single transient provider failure does not end a run. Rate limits, timeouts and 5xx responses are retried up to `MAX_ATTEMPTS` times per request (4 including the first), with exponential backoff from `RETRY_BACKOFF_SECONDS` doubling per retry, half jitter and a 60-second cap; `REQUEST_INTERVAL_SECONDS` still spaces every attempt. Rejected requests, invalid or truncated structured output, cost and budget violations are deliberate stops and are never retried. Every attempt is journalled with its error type, and each retry prints the stage, ID, attempt and delay.
+
+### Run on public data locally
+
+The commands below prepare the current public files. Use an empty input directory and a fresh artifacts/output directory for a new configuration.
+
+```sh
+.venv/bin/python src/prepare_inputs.py --train data/public_train.csv --test data/public_test.csv --out-dir out/public_input
+.venv/bin/python -m solution adapt --train out/public_input/train.jsonl --artifacts out/public_artifacts --dry-run
+```
+
+`--dry-run` validates input and configuration and prints estimates without API requests or writing output files. The adaptation dry run estimates the baseline stage; later stages depend on generated answers and are priced immediately before execution. It does not certify the total pipeline cost. The following commands make live requests:
+
+```sh
+.venv/bin/python -m solution adapt --train out/public_input/train.jsonl --artifacts out/public_artifacts
+.venv/bin/python -m solution eval --test out/public_input/test.jsonl --artifacts out/public_artifacts --output out/public_output --dry-run
+.venv/bin/python -m solution eval --test out/public_input/test.jsonl --artifacts out/public_artifacts --output out/public_output
+.venv/bin/python src/evaluate.py --test data/public_test.csv --predictions out/public_output/predictions.csv --out out/public_output/score.json
+```
+
+On the private data, use the same commands with the new labeled training input, unlabeled test input and fresh output directories. No public training results, IDs, row counts or pre-generated prompt artifacts are required by the runtime.
+
+### Docker interface for organizers
+
+Build one image and run its two commands in separate containers. The mounted input directory contains the prepared JSONL files. The artifacts directory starts empty for each new adaptation. The same `.env` supplies credentials and configuration for both commands.
+
+```sh
+docker build -t metalearning-judge .
+mkdir -p out/docker_artifacts out/docker_output
+docker run --rm --env-file .env \
+  -v "$PWD/out/public_input:/input:ro" \
+  -v "$PWD/out/docker_artifacts:/artifacts" \
+  metalearning-judge adapt
+docker run --rm --env-file .env \
+  -v "$PWD/out/public_input:/input:ro" \
+  -v "$PWD/out/docker_artifacts:/artifacts:ro" \
+  -v "$PWD/out/docker_output:/output" \
+  metalearning-judge eval
+```
+
+The entry point is `python -m solution`. Defaults are `/input/train.jsonl` for `adapt`, `/input/test.jsonl` for `eval`, `/artifacts` for saved adaptation and `/output` for predictions. Both commands also accept the local path arguments shown above. The image copies only runtime sources, prompt templates and the dependency lock. Credentials, data and experiment results are excluded from the build context.
+
+### Artifacts and restarts
+
+`adapt` writes:
+
+```text
+/artifacts/
+  artifact.json                 # shared base_prompt + four topic_advice texts
+  routed_prompts.json           # exact compiled inference prompt per topic
+  explanation.md                # jury explanation with real train evidence
+  explanation.json              # validated explanation structure
+  baseline_predictions.csv
+  analyses.jsonl
+  synthesis_input.json
+  explanation_input.json
+  *_prompt.md                   # exact adaptation prompt templates
+  *_calls.jsonl                 # model names, raw responses, tokens and estimated costs
+  budget.jsonl                  # reservations and settlement for every API attempt
+  manifest.json                 # input/config/source hashes and dependency versions
+  progress.json
+  summary.json                  # complete only when all stages and validation pass
+  .run.lock                     # prevents conflicting writers
+```
+
+`eval` consumes `/artifacts` read-only and writes `predictions.csv`, request/budget journals, a manifest, progress and summary under `/output`. It requires only the saved prediction/explanation artifacts, adaptation manifest/summary, budget and lock file; the original train input and analysis caches are not needed for prediction.
+
+After a failure, rerun the same command with the same directories, inputs and configuration. Matching successful structured responses are recovered from journals; unfinished or invalid requests can be retried. A timeout or server-side failure can still have been billed, so its budget reservation is retained; a request the provider rejected before generating tokens (rate limit, 4xx) releases its reservation, so retries keep their headroom. Changes to input bytes, model parameters, runtime sources or dependency versions require a fresh output directory. Completed adaptation is checked and reused without new requests. Artifact hashes and compiled prompt consistency are verified before prediction.
+
+### Offline verification
+
+```sh
+.venv/bin/python -m unittest discover -s tests -v
+python3 -m unittest discover -s src -p 'test_*.py'
+```
+
+The solution tests run the real adaptation/inference flow with a fake API transport. They cover separate execution with read-only artifacts and no train file, exact routing and label schemas, interruption/resume, cache invalidation, budget accounting, invalid replies, explanation evidence and dry runs. `tests/test_retry.py` covers the transient-failure policy: which errors are retried, backoff bounds, reservation release and the stops that must never be retried. They make no paid API requests.
+
+### Repeat the complete Docker E2E
+
+After building the image and configuring the API key, the host runner prepares public inputs, runs `adapt` and `eval` in separate containers and calls the unchanged official scorer:
+
+```sh
+.venv/bin/python scripts/run_public_e2e.py --image metalearning-judge:latest
+```
+
+This command makes live API requests under a maximum $10 pipeline budget. It pins the chosen image ID, exposes only `test.jsonl` to `eval`, mounts adaptation artifacts read-only, checks their hashes after evaluation and saves stage logs, metrics and an E2E report under `out/docker-e2e/`. Credentials are forwarded by environment variable name without being saved to logs or manifests.
+
+Use `--run-dir PATH` to resume a run using the same image and configuration. Repeating the completed run is also supported; the verified run reused all responses with zero additional API attempts and byte-identical predictions. Local journals and generated artifacts under `out/` are ignored by Git; the compact validation record is saved in [validation/docker-public-20261024.json](validation/docker-public-20261024.json).

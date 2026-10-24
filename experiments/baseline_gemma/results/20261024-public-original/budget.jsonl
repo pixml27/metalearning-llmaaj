@@ -1,0 +1,162 @@
+{"event": "reserved", "attempt_id": "32f8ac3f62374333acc46e2305124297", "item_id": "009f482b6b935e6a7d379147abff5ce1", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:19:29.600440+00:00"}
+{"event": "reserved", "attempt_id": "d1a0dc26c12c4145bb78ec4e56c81efc", "item_id": "009f482b6b935e6a7d379147abff5ce1", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:19:53.654290+00:00"}
+{"event": "settled", "attempt_id": "d1a0dc26c12c4145bb78ec4e56c81efc", "accounted_usd": 0.0, "time": "2026-10-24T11:19:54.905429+00:00"}
+{"event": "reserved", "attempt_id": "047f7d42c91d48bda7766987da3ff410", "item_id": "022c98047e7fb11e67a6bc2d41ad33ae", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:12.070038+00:00"}
+{"event": "settled", "attempt_id": "047f7d42c91d48bda7766987da3ff410", "accounted_usd": 0.0, "time": "2026-10-24T11:20:13.021514+00:00"}
+{"event": "reserved", "attempt_id": "dcf53019e970495f8cddf32d65edf875", "item_id": "03c953c7db0f2c32a8c8de9f8c216774", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:13.029862+00:00"}
+{"event": "settled", "attempt_id": "dcf53019e970495f8cddf32d65edf875", "accounted_usd": 0.0, "time": "2026-10-24T11:20:13.881393+00:00"}
+{"event": "reserved", "attempt_id": "a23071050c4143838a0df258fd0992f3", "item_id": "081cd90b9dfa5129c5feff9229773c1b", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:13.887424+00:00"}
+{"event": "settled", "attempt_id": "a23071050c4143838a0df258fd0992f3", "accounted_usd": 0.0, "time": "2026-10-24T11:20:14.744101+00:00"}
+{"event": "reserved", "attempt_id": "794f09ad431d41cfbc284a03884375f1", "item_id": "100a727946a7a45a72c46771e608090f", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:14.750550+00:00"}
+{"event": "settled", "attempt_id": "794f09ad431d41cfbc284a03884375f1", "accounted_usd": 0.0, "time": "2026-10-24T11:20:15.561721+00:00"}
+{"event": "reserved", "attempt_id": "ff77bdbdaf8b410a980656e4a062ca2d", "item_id": "15b42e3513d7c700cc9ae71435bf4f29", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:15.568430+00:00"}
+{"event": "settled", "attempt_id": "ff77bdbdaf8b410a980656e4a062ca2d", "accounted_usd": 0.0, "time": "2026-10-24T11:20:16.341112+00:00"}
+{"event": "reserved", "attempt_id": "f3d8b4500831457e805071e834e1cfe5", "item_id": "1b5c00790b381f60514fb565d1293701", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:16.347502+00:00"}
+{"event": "settled", "attempt_id": "f3d8b4500831457e805071e834e1cfe5", "accounted_usd": 0.0, "time": "2026-10-24T11:20:17.099760+00:00"}
+{"event": "reserved", "attempt_id": "af003dc1e03345619211f065594c6e2c", "item_id": "1ea064e6fa2e2ab79efb65bb8621699d", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:17.106142+00:00"}
+{"event": "settled", "attempt_id": "af003dc1e03345619211f065594c6e2c", "accounted_usd": 0.0, "time": "2026-10-24T11:20:17.938149+00:00"}
+{"event": "reserved", "attempt_id": "fc2e2cba9ab346729068a37a362a4715", "item_id": "2881d8466e9762a8d467f02d48087a33", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:17.944519+00:00"}
+{"event": "settled", "attempt_id": "fc2e2cba9ab346729068a37a362a4715", "accounted_usd": 0.0, "time": "2026-10-24T11:20:18.715926+00:00"}
+{"event": "reserved", "attempt_id": "4f8044eed2cb49e69f19c6929183f6f1", "item_id": "2f42b44d71e4be5ac4d772ca26be680d", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:18.721852+00:00"}
+{"event": "settled", "attempt_id": "4f8044eed2cb49e69f19c6929183f6f1", "accounted_usd": 0.0, "time": "2026-10-24T11:20:19.557157+00:00"}
+{"event": "reserved", "attempt_id": "4b1c1c0699324f91a0290fcbf65a13f8", "item_id": "309878e769123c3af13bad84dcd85e60", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:19.563589+00:00"}
+{"event": "settled", "attempt_id": "4b1c1c0699324f91a0290fcbf65a13f8", "accounted_usd": 0.0, "time": "2026-10-24T11:20:20.484447+00:00"}
+{"event": "reserved", "attempt_id": "51082b95dd7342669759c0c5ce6b6c55", "item_id": "3da7c294327ee1d43b18ebbd1fb978cb", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:20.490775+00:00"}
+{"event": "settled", "attempt_id": "51082b95dd7342669759c0c5ce6b6c55", "accounted_usd": 0.0, "time": "2026-10-24T11:20:21.294345+00:00"}
+{"event": "reserved", "attempt_id": "d86b8441a6c24668b5f587a0f08b3353", "item_id": "3e8b66098865083bd339dfdfe5122d7a", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:21.300622+00:00"}
+{"event": "settled", "attempt_id": "d86b8441a6c24668b5f587a0f08b3353", "accounted_usd": 0.0, "time": "2026-10-24T11:20:22.135560+00:00"}
+{"event": "reserved", "attempt_id": "e8ff250d57644e5b8cdde600a582c008", "item_id": "4719b7775f402a0fd43b49d532753dcd", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:22.141858+00:00"}
+{"event": "settled", "attempt_id": "e8ff250d57644e5b8cdde600a582c008", "accounted_usd": 0.0, "time": "2026-10-24T11:20:22.912781+00:00"}
+{"event": "reserved", "attempt_id": "25795d7ee53841f7b7eb71d1ae5987c3", "item_id": "478e2e7687d9274f63f585c1f6aacd91", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:22.919081+00:00"}
+{"event": "settled", "attempt_id": "25795d7ee53841f7b7eb71d1ae5987c3", "accounted_usd": 0.0, "time": "2026-10-24T11:20:23.689149+00:00"}
+{"event": "reserved", "attempt_id": "ca916448562b4427ba6015142b702101", "item_id": "4cdb0c403c2d5fcca908a057a773e39e", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:23.695448+00:00"}
+{"event": "settled", "attempt_id": "ca916448562b4427ba6015142b702101", "accounted_usd": 0.0, "time": "2026-10-24T11:20:24.677748+00:00"}
+{"event": "reserved", "attempt_id": "22ca02358a1a4aee94da9567bb0c0090", "item_id": "4dbcb696193387198f6b9006a2189bf0", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:24.684056+00:00"}
+{"event": "settled", "attempt_id": "22ca02358a1a4aee94da9567bb0c0090", "accounted_usd": 0.0, "time": "2026-10-24T11:20:25.464798+00:00"}
+{"event": "reserved", "attempt_id": "918c3c6062934bdf8ca59473b7fe47b0", "item_id": "4e9924e624db6e44bdcf4b798a39fada", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:25.471478+00:00"}
+{"event": "settled", "attempt_id": "918c3c6062934bdf8ca59473b7fe47b0", "accounted_usd": 0.0, "time": "2026-10-24T11:20:26.315814+00:00"}
+{"event": "reserved", "attempt_id": "9bb6045b8b0f44ed9b973b55a66db10b", "item_id": "5960415fa7d26d186778af3b27aeb445", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:26.322502+00:00"}
+{"event": "settled", "attempt_id": "9bb6045b8b0f44ed9b973b55a66db10b", "accounted_usd": 0.0, "time": "2026-10-24T11:20:27.090053+00:00"}
+{"event": "reserved", "attempt_id": "aa4a1fb7639c4e4bb6ed38f2a9437de5", "item_id": "5cc5c7dea0a2eb659ca48c1ac70b186b", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:27.096604+00:00"}
+{"event": "settled", "attempt_id": "aa4a1fb7639c4e4bb6ed38f2a9437de5", "accounted_usd": 0.0, "time": "2026-10-24T11:20:27.901061+00:00"}
+{"event": "reserved", "attempt_id": "1b0192ce7c174d2eb731fc3d0312c475", "item_id": "5ee966fb465b5a6d8c7170faa1a29556", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:27.907981+00:00"}
+{"event": "settled", "attempt_id": "1b0192ce7c174d2eb731fc3d0312c475", "accounted_usd": 0.0, "time": "2026-10-24T11:20:28.772933+00:00"}
+{"event": "reserved", "attempt_id": "336b2b43b892441b828b7c66a7843440", "item_id": "6501b7382ab76e00d6147b9a15047739", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:28.779248+00:00"}
+{"event": "settled", "attempt_id": "336b2b43b892441b828b7c66a7843440", "accounted_usd": 0.0, "time": "2026-10-24T11:20:29.602050+00:00"}
+{"event": "reserved", "attempt_id": "d07723c153e242c4adb3e801c3d0ff59", "item_id": "67886394ae5cf0812c9c28dd75d3d559", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:29.608446+00:00"}
+{"event": "settled", "attempt_id": "d07723c153e242c4adb3e801c3d0ff59", "accounted_usd": 0.0, "time": "2026-10-24T11:20:30.454828+00:00"}
+{"event": "reserved", "attempt_id": "b7abd20307bf4ecab59337f27572b0b6", "item_id": "6df781e79a138bcd731ab4a1c2a70334", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:30.462883+00:00"}
+{"event": "settled", "attempt_id": "b7abd20307bf4ecab59337f27572b0b6", "accounted_usd": 0.0, "time": "2026-10-24T11:20:31.312895+00:00"}
+{"event": "reserved", "attempt_id": "ac4149abea0b40cdb001a9a91685acec", "item_id": "6ea8039aece228d83d795c2523e7c34d", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:31.319686+00:00"}
+{"event": "settled", "attempt_id": "ac4149abea0b40cdb001a9a91685acec", "accounted_usd": 0.0, "time": "2026-10-24T11:20:32.069048+00:00"}
+{"event": "reserved", "attempt_id": "8ae4ba47c55a4eda8b702ef4527b9e54", "item_id": "6feafc2f51f6b48400b1848cf1f653b6", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:32.076066+00:00"}
+{"event": "settled", "attempt_id": "8ae4ba47c55a4eda8b702ef4527b9e54", "accounted_usd": 0.0, "time": "2026-10-24T11:20:32.854821+00:00"}
+{"event": "reserved", "attempt_id": "612a844e97a84838aafe67cc8b36e924", "item_id": "728f6dff924ca6bedd4f0d6c7e098050", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:20:32.861463+00:00"}
+{"event": "reserved", "attempt_id": "caad885a3af4449db022ac14f3c32586", "item_id": "728f6dff924ca6bedd4f0d6c7e098050", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:21:58.486528+00:00"}
+{"event": "settled", "attempt_id": "caad885a3af4449db022ac14f3c32586", "accounted_usd": 0.0, "time": "2026-10-24T11:21:59.642957+00:00"}
+{"event": "reserved", "attempt_id": "a501d18ce0a54a7b88c1901dc1f244e5", "item_id": "73380ff8277a4289397c9acadd797641", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:21:59.651355+00:00"}
+{"event": "settled", "attempt_id": "a501d18ce0a54a7b88c1901dc1f244e5", "accounted_usd": 0.0, "time": "2026-10-24T11:22:00.423538+00:00"}
+{"event": "reserved", "attempt_id": "90a23e3486e74b349631f87aa6ab1f0f", "item_id": "74d3f367e355d0a4862d9aef9b8bf1da", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:22:00.430598+00:00"}
+{"event": "settled", "attempt_id": "90a23e3486e74b349631f87aa6ab1f0f", "accounted_usd": 0.0, "time": "2026-10-24T11:22:01.353061+00:00"}
+{"event": "reserved", "attempt_id": "010829db5ce8489282499f2469202859", "item_id": "762fd3e02e63db383957d4c1d83337e4", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:22:01.361254+00:00"}
+{"event": "settled", "attempt_id": "010829db5ce8489282499f2469202859", "accounted_usd": 0.0, "time": "2026-10-24T11:22:02.404054+00:00"}
+{"event": "reserved", "attempt_id": "8d5af83180554b7db9806fc61cc3261f", "item_id": "7751bf15f7a71925452bcf63f3d8bf0c", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:22:02.411067+00:00"}
+{"event": "settled", "attempt_id": "8d5af83180554b7db9806fc61cc3261f", "accounted_usd": 0.0, "time": "2026-10-24T11:22:03.028935+00:00"}
+{"event": "reserved", "attempt_id": "7772114cf20b4577a257f5c51d05099f", "item_id": "77ff25a3a4a93435514b00121e502b9d", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:22:03.036615+00:00"}
+{"event": "settled", "attempt_id": "7772114cf20b4577a257f5c51d05099f", "accounted_usd": 0.0, "time": "2026-10-24T11:22:03.882268+00:00"}
+{"event": "reserved", "attempt_id": "699f4a73876045258d4c137e16972e2d", "item_id": "78d8f2f967f07afb51541d534ae573c6", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:22:03.889551+00:00"}
+{"event": "settled", "attempt_id": "699f4a73876045258d4c137e16972e2d", "accounted_usd": 0.0, "time": "2026-10-24T11:22:04.760310+00:00"}
+{"event": "reserved", "attempt_id": "5cbc7cc6232e4ed198c4a5990803b157", "item_id": "7ab7ae53ef01625cca5ca085aaffeb95", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:22:04.767504+00:00"}
+{"event": "settled", "attempt_id": "5cbc7cc6232e4ed198c4a5990803b157", "accounted_usd": 0.0, "time": "2026-10-24T11:22:05.578000+00:00"}
+{"event": "reserved", "attempt_id": "ba520778b0ff49a69d4179c9ec864923", "item_id": "7af8e87f5ca3a43c0d68044eec265860", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:22:05.585043+00:00"}
+{"event": "settled", "attempt_id": "ba520778b0ff49a69d4179c9ec864923", "accounted_usd": 0.0, "time": "2026-10-24T11:22:06.358462+00:00"}
+{"event": "reserved", "attempt_id": "e2a3018f7dbd4d50bb12479da19ee764", "item_id": "7b9a54ee7239ba4e90f18fe4833eafcc", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:22:06.365001+00:00"}
+{"event": "settled", "attempt_id": "e2a3018f7dbd4d50bb12479da19ee764", "accounted_usd": 0.0, "time": "2026-10-24T11:22:07.283021+00:00"}
+{"event": "reserved", "attempt_id": "6e4ac793047249409c3a8853fda87b64", "item_id": "7bd9cc5c3f789d038d764732e2890273", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:22:07.289952+00:00"}
+{"event": "settled", "attempt_id": "6e4ac793047249409c3a8853fda87b64", "accounted_usd": 0.0, "time": "2026-10-24T11:22:08.205675+00:00"}
+{"event": "reserved", "attempt_id": "1b67261f31524a998f9efb2f8a045e58", "item_id": "7d12fb9ed9e8e9367ac875f008a67b07", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:22:08.212797+00:00"}
+{"event": "settled", "attempt_id": "1b67261f31524a998f9efb2f8a045e58", "accounted_usd": 0.0, "time": "2026-10-24T11:22:09.126625+00:00"}
+{"event": "reserved", "attempt_id": "11a02d457392495ab51742ff8728abae", "item_id": "7dcb6a3ca46cc7261401174de1247402", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:22:09.133720+00:00"}
+{"event": "settled", "attempt_id": "11a02d457392495ab51742ff8728abae", "accounted_usd": 0.0, "time": "2026-10-24T11:22:09.984331+00:00"}
+{"event": "reserved", "attempt_id": "1819c2a194264090b1cb9b6d6f8b5a93", "item_id": "86b0b2ef18b2e1e1081e60898e68eb50", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:22:09.992462+00:00"}
+{"event": "settled", "attempt_id": "1819c2a194264090b1cb9b6d6f8b5a93", "accounted_usd": 0.0, "time": "2026-10-24T11:22:10.867284+00:00"}
+{"event": "reserved", "attempt_id": "9522edbc11524388a4117883a1871485", "item_id": "8b770aec105fc3a6b70bba083913edc7", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:22:10.875112+00:00"}
+{"event": "settled", "attempt_id": "9522edbc11524388a4117883a1871485", "accounted_usd": 0.0, "time": "2026-10-24T11:22:11.624183+00:00"}
+{"event": "reserved", "attempt_id": "de10be0924b543cca4b8be24c4a6b686", "item_id": "9273f1d3f88303616b4e658ef581c389", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:30.510017+00:00"}
+{"event": "settled", "attempt_id": "de10be0924b543cca4b8be24c4a6b686", "accounted_usd": 0.0, "time": "2026-10-24T11:23:31.621907+00:00"}
+{"event": "reserved", "attempt_id": "698f0337d10d452faf5d25fd3baa8a2d", "item_id": "9492d03454c6b291166a10591e862a64", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:31.630843+00:00"}
+{"event": "settled", "attempt_id": "698f0337d10d452faf5d25fd3baa8a2d", "accounted_usd": 0.0, "time": "2026-10-24T11:23:32.480015+00:00"}
+{"event": "reserved", "attempt_id": "395ce53a102b4398a3cac14832f7e377", "item_id": "954fed52960fcefb037568ade6824680", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:32.487591+00:00"}
+{"event": "settled", "attempt_id": "395ce53a102b4398a3cac14832f7e377", "accounted_usd": 0.0, "time": "2026-10-24T11:23:33.304687+00:00"}
+{"event": "reserved", "attempt_id": "d0224c207db04249bb8fa935a5506383", "item_id": "96ec861ade4098aa0ec0ba750b4f5917", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:33.316651+00:00"}
+{"event": "settled", "attempt_id": "d0224c207db04249bb8fa935a5506383", "accounted_usd": 0.0, "time": "2026-10-24T11:23:34.154240+00:00"}
+{"event": "reserved", "attempt_id": "695f2d1d7d484762bbc55e96cd5aea9a", "item_id": "9dfd06c5f89bf837f59bcc8861a8e508", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:34.161253+00:00"}
+{"event": "settled", "attempt_id": "695f2d1d7d484762bbc55e96cd5aea9a", "accounted_usd": 0.0, "time": "2026-10-24T11:23:34.954668+00:00"}
+{"event": "reserved", "attempt_id": "90961e27f28b4e90b06d61d7b2b39b2c", "item_id": "a0d18518227715d13b953318c25adcf6", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:34.961793+00:00"}
+{"event": "settled", "attempt_id": "90961e27f28b4e90b06d61d7b2b39b2c", "accounted_usd": 0.0, "time": "2026-10-24T11:23:35.782427+00:00"}
+{"event": "reserved", "attempt_id": "dbd38e6d48224ae7aa0d47c30a4b6c50", "item_id": "aa7ce42f1facb849548e1549aeda2f8d", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:35.790167+00:00"}
+{"event": "settled", "attempt_id": "dbd38e6d48224ae7aa0d47c30a4b6c50", "accounted_usd": 0.0, "time": "2026-10-24T11:23:36.547011+00:00"}
+{"event": "reserved", "attempt_id": "4d36ed1dce294813872c559f557d9037", "item_id": "ac0173b1944ee8106082b0448fe765bd", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:36.554969+00:00"}
+{"event": "settled", "attempt_id": "4d36ed1dce294813872c559f557d9037", "accounted_usd": 0.0, "time": "2026-10-24T11:23:37.459927+00:00"}
+{"event": "reserved", "attempt_id": "cdf24ffb6f434ca5be1078f43f7a51b0", "item_id": "ac17233bc6736cf20601c097638fe414", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:37.467822+00:00"}
+{"event": "settled", "attempt_id": "cdf24ffb6f434ca5be1078f43f7a51b0", "accounted_usd": 0.0, "time": "2026-10-24T11:23:38.200325+00:00"}
+{"event": "reserved", "attempt_id": "4a7ebf20bbff4d898521b7ec33d15fe8", "item_id": "ac89f7f2b40bd293a4132dacd248d804", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:38.208357+00:00"}
+{"event": "settled", "attempt_id": "4a7ebf20bbff4d898521b7ec33d15fe8", "accounted_usd": 0.0, "time": "2026-10-24T11:23:39.023335+00:00"}
+{"event": "reserved", "attempt_id": "6e8d1e27574043e98eaa7a0930d51ad2", "item_id": "b0e0328b8bcf51a0be4f5339a8f27934", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:39.030684+00:00"}
+{"event": "settled", "attempt_id": "6e8d1e27574043e98eaa7a0930d51ad2", "accounted_usd": 0.0, "time": "2026-10-24T11:23:39.811994+00:00"}
+{"event": "reserved", "attempt_id": "f70a468a4a4444bb9cf4a950a938a43f", "item_id": "b0ea853236359b15b973e99817b844ff", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:39.819768+00:00"}
+{"event": "settled", "attempt_id": "f70a468a4a4444bb9cf4a950a938a43f", "accounted_usd": 0.0, "time": "2026-10-24T11:23:40.666520+00:00"}
+{"event": "reserved", "attempt_id": "4188603246a64d379d8143de27e15bd9", "item_id": "b3230a416c1912ee58ea582d4dfcf9f6", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:40.674199+00:00"}
+{"event": "settled", "attempt_id": "4188603246a64d379d8143de27e15bd9", "accounted_usd": 0.0, "time": "2026-10-24T11:23:41.411377+00:00"}
+{"event": "reserved", "attempt_id": "3cf2efe0d9714574920691c6c359397b", "item_id": "b33871a20387475d3eccf116712a9fe7", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:41.418908+00:00"}
+{"event": "settled", "attempt_id": "3cf2efe0d9714574920691c6c359397b", "accounted_usd": 0.0, "time": "2026-10-24T11:23:42.245273+00:00"}
+{"event": "reserved", "attempt_id": "2da18145f3914f1db72e33e204c1cd12", "item_id": "b33f627bdd6f4c5b17409e1b562fb78b", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:23:42.251887+00:00"}
+{"event": "settled", "attempt_id": "2da18145f3914f1db72e33e204c1cd12", "accounted_usd": 0.0, "time": "2026-10-24T11:23:43.066709+00:00"}
+{"event": "reserved", "attempt_id": "24ba575f96d24634bdfbbc172594c574", "item_id": "b57678e000563542b03e3ced2b2940b9", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:01.331345+00:00"}
+{"event": "settled", "attempt_id": "24ba575f96d24634bdfbbc172594c574", "accounted_usd": 0.0, "time": "2026-10-24T11:25:02.288519+00:00"}
+{"event": "reserved", "attempt_id": "fe12315da79d40e8b2688bd884b8fd18", "item_id": "b792aa0780ea7381bfde970f4139e4e0", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:02.298441+00:00"}
+{"event": "settled", "attempt_id": "fe12315da79d40e8b2688bd884b8fd18", "accounted_usd": 0.0, "time": "2026-10-24T11:25:03.067434+00:00"}
+{"event": "reserved", "attempt_id": "407dfc386f71407a8a7039f64dd29e1b", "item_id": "b8c0743fdbdfc637c00690600768386e", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:03.076017+00:00"}
+{"event": "settled", "attempt_id": "407dfc386f71407a8a7039f64dd29e1b", "accounted_usd": 0.0, "time": "2026-10-24T11:25:04.055258+00:00"}
+{"event": "reserved", "attempt_id": "37d2de09da4e4988b781f3cc3b1468e3", "item_id": "b9f16e24d32180d89005214a77734f72", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:04.062107+00:00"}
+{"event": "settled", "attempt_id": "37d2de09da4e4988b781f3cc3b1468e3", "accounted_usd": 0.0, "time": "2026-10-24T11:25:04.874220+00:00"}
+{"event": "reserved", "attempt_id": "90e28e5eab5547fcb6c83222b726c8be", "item_id": "bad9cc30bb7beff37288f37c3344a881", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:04.882376+00:00"}
+{"event": "settled", "attempt_id": "90e28e5eab5547fcb6c83222b726c8be", "accounted_usd": 0.0, "time": "2026-10-24T11:25:05.677500+00:00"}
+{"event": "reserved", "attempt_id": "6fd3b5ef6f474edbac5d764654c4ed18", "item_id": "c7e06d39a47afbdeff9c1f7b961c9a19", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:05.684477+00:00"}
+{"event": "settled", "attempt_id": "6fd3b5ef6f474edbac5d764654c4ed18", "accounted_usd": 0.0, "time": "2026-10-24T11:25:06.439234+00:00"}
+{"event": "reserved", "attempt_id": "e34beeffba8048bc8ad91ec83854ea06", "item_id": "cf4bc159142f4d6b4335a4777c63e3ec", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:06.447375+00:00"}
+{"event": "settled", "attempt_id": "e34beeffba8048bc8ad91ec83854ea06", "accounted_usd": 0.0, "time": "2026-10-24T11:25:07.194901+00:00"}
+{"event": "reserved", "attempt_id": "7a7a991073e844858944a7bc3b9a1e29", "item_id": "cf5878d0be0e3ad63a41d889eaec9fb3", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:07.203113+00:00"}
+{"event": "settled", "attempt_id": "7a7a991073e844858944a7bc3b9a1e29", "accounted_usd": 0.0, "time": "2026-10-24T11:25:08.010222+00:00"}
+{"event": "reserved", "attempt_id": "1e2df7f5ac984d12966e99f2c28689a9", "item_id": "d0302c5513cde2ec26d49689e9a1a8d3", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:08.018954+00:00"}
+{"event": "settled", "attempt_id": "1e2df7f5ac984d12966e99f2c28689a9", "accounted_usd": 0.0, "time": "2026-10-24T11:25:08.839155+00:00"}
+{"event": "reserved", "attempt_id": "7d583e6ad4b24cf3901c89048569f88a", "item_id": "d466a4ae02f3da64b40a3a86e94dd23b", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:08.846997+00:00"}
+{"event": "settled", "attempt_id": "7d583e6ad4b24cf3901c89048569f88a", "accounted_usd": 0.0, "time": "2026-10-24T11:25:09.677421+00:00"}
+{"event": "reserved", "attempt_id": "ac28c0cc1eaa47ad81c747e59f636631", "item_id": "da25638dffea1b422d9590aa198d7bb1", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:09.684919+00:00"}
+{"event": "settled", "attempt_id": "ac28c0cc1eaa47ad81c747e59f636631", "accounted_usd": 0.0, "time": "2026-10-24T11:25:10.632561+00:00"}
+{"event": "reserved", "attempt_id": "91e7f71bdc824e68a82422d374b2c422", "item_id": "daff4a5e0786e229a45674b4457593c7", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:10.641799+00:00"}
+{"event": "settled", "attempt_id": "91e7f71bdc824e68a82422d374b2c422", "accounted_usd": 0.0, "time": "2026-10-24T11:25:11.407382+00:00"}
+{"event": "reserved", "attempt_id": "777a97296bc4465398268cd7afb00165", "item_id": "db6a683f9cee870c9b4c81275f1dcc63", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:11.415712+00:00"}
+{"event": "settled", "attempt_id": "777a97296bc4465398268cd7afb00165", "accounted_usd": 0.0, "time": "2026-10-24T11:25:12.322362+00:00"}
+{"event": "reserved", "attempt_id": "d82a6d40c24b4b918291ca3645325efd", "item_id": "ddd4f1d33488697abc2a4269598d42f5", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:12.330547+00:00"}
+{"event": "settled", "attempt_id": "d82a6d40c24b4b918291ca3645325efd", "accounted_usd": 0.0, "time": "2026-10-24T11:25:13.139351+00:00"}
+{"event": "reserved", "attempt_id": "059adba628c54307b37ddaf821f37380", "item_id": "e19b119384503a4956133ab79b39547e", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:13.147953+00:00"}
+{"event": "settled", "attempt_id": "059adba628c54307b37ddaf821f37380", "accounted_usd": 0.0, "time": "2026-10-24T11:25:13.911047+00:00"}
+{"event": "reserved", "attempt_id": "0d20d789f3974fc883b5450114413470", "item_id": "e305df9e4dcbe92a015fcfd7cad02971", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:47.182933+00:00"}
+{"event": "settled", "attempt_id": "0d20d789f3974fc883b5450114413470", "accounted_usd": 0.0, "time": "2026-10-24T11:25:48.234840+00:00"}
+{"event": "reserved", "attempt_id": "1fffabc815c74f38b0ed9caba98ea050", "item_id": "e51c3070f26191b3a247b71f23d6492c", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:48.244889+00:00"}
+{"event": "settled", "attempt_id": "1fffabc815c74f38b0ed9caba98ea050", "accounted_usd": 0.0, "time": "2026-10-24T11:25:49.082679+00:00"}
+{"event": "reserved", "attempt_id": "df8942e586df446fa7bb4322e9b91051", "item_id": "e9b67908cc3785f43668bf7193e9ba2d", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:49.091800+00:00"}
+{"event": "settled", "attempt_id": "df8942e586df446fa7bb4322e9b91051", "accounted_usd": 0.0, "time": "2026-10-24T11:25:49.953274+00:00"}
+{"event": "reserved", "attempt_id": "98a8c1c4bf754927a4e8d11a24e7a43b", "item_id": "eb996bf75196ea79f4eb897b34d656ed", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:49.960711+00:00"}
+{"event": "settled", "attempt_id": "98a8c1c4bf754927a4e8d11a24e7a43b", "accounted_usd": 0.0, "time": "2026-10-24T11:25:50.772417+00:00"}
+{"event": "reserved", "attempt_id": "2d7b14323d8a4a13a5fcd75bba4ec88f", "item_id": "f4ee425b3c7f702b7f378139a01b78f2", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:50.780656+00:00"}
+{"event": "settled", "attempt_id": "2d7b14323d8a4a13a5fcd75bba4ec88f", "accounted_usd": 0.0, "time": "2026-10-24T11:25:51.645101+00:00"}
+{"event": "reserved", "attempt_id": "e1c870bdfbfc4d77b09599144d965007", "item_id": "f8eef36e37fcf27d852319df400cf160", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:51.653119+00:00"}
+{"event": "settled", "attempt_id": "e1c870bdfbfc4d77b09599144d965007", "accounted_usd": 0.0, "time": "2026-10-24T11:25:52.442909+00:00"}
+{"event": "reserved", "attempt_id": "936f8b92015c4d41a504fd0e2d0b71ea", "item_id": "f97db6875c365928b32f79930721b834", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:52.451377+00:00"}
+{"event": "settled", "attempt_id": "936f8b92015c4d41a504fd0e2d0b71ea", "accounted_usd": 0.0, "time": "2026-10-24T11:25:53.282155+00:00"}
+{"event": "reserved", "attempt_id": "e274c671b222451993edc2bbcd4aea62", "item_id": "f9f22f7f0248b7990213da2c5066c697", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:53.291108+00:00"}
+{"event": "settled", "attempt_id": "e274c671b222451993edc2bbcd4aea62", "accounted_usd": 0.0, "time": "2026-10-24T11:25:53.925754+00:00"}
+{"event": "reserved", "attempt_id": "8023699263a94426b64940d84e5735db", "item_id": "fe137ff647e9b95d2d57c10a7e1238c7", "run_id": "20261024-public-original", "accounted_usd": 0.0, "time": "2026-10-24T11:25:53.934043+00:00"}
+{"event": "settled", "attempt_id": "8023699263a94426b64940d84e5735db", "accounted_usd": 0.0, "time": "2026-10-24T11:25:54.723842+00:00"}

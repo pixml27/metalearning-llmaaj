@@ -1,0 +1,143 @@
+{
+  "status": "complete",
+  "completed": 80,
+  "total": 80,
+  "response_models": [
+    "gemini-3.8-flash"
+  ],
+  "inference": {
+    "api_responses": 80,
+    "cost_usd_estimated": 0.30516375,
+    "response_models": [
+      "gemini-3.8-flash"
+    ],
+    "input_tokens": 192065,
+    "output_tokens": 42964
+  },
+  "adaptation": {
+    "status": "complete",
+    "completed": 150,
+    "total": 150,
+    "analysis": {
+      "api_responses": 150,
+      "cost_usd_estimated": 0.5829562500000001,
+      "response_models": [
+        "gemini-3.8-flash"
+      ],
+      "input_tokens": 146630,
+      "output_tokens": 126129
+    },
+    "analysis_reused_from": "/Users/akor/Work/Plata/metalearning-llmaaj/experiments/exp1/artifacts/20261024-public-original",
+    "analysis_new_api_calls": 0,
+    "synthesis": {
+      "api_responses": 2,
+      "cost_usd_estimated": 0.19773000000000002,
+      "response_models": [
+        "gemini-4-argon"
+      ],
+      "input_tokens": 50065,
+      "output_tokens": 9760
+    },
+    "cost_usd_estimated": 0.78068625,
+    "cost_usd_estimated_new": 0.19773000000000002,
+    "cost_note": "Equivalent adaptation cost: exp1 train analyses reused without new API calls plus both exp3 Argon requests",
+    "definitions_sha256": "0cb34191cf9f62a913011c91a5040c4e705dddc970f86b83978e23525ff0343e",
+    "link_report": {
+      "links_total": 135,
+      "links_per_part": {
+        "base": 71,
+        "credit": 17,
+        "financial_position": 12,
+        "savings": 17,
+        "spending": 18
+      },
+      "distinct_cases_cited": 106,
+      "cases_with_disagreeing_baseline": 35,
+      "criteria": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "criteria_without_link": [],
+      "malformed_links": 0,
+      "unknown_cases": [],
+      "wrong_labels": []
+    },
+    "strip_report": {
+      "evidence_markers_left": 0,
+      "training_cases_left": {},
+      "similarity_to_mechanical_strip": {
+        "base": 1.0,
+        "credit": 1.0,
+        "financial_position": 1.0,
+        "savings": 1.0,
+        "spending": 1.0
+      },
+      "criteria_preserved": true,
+      "sections_present": {
+        "TASK": true,
+        "CRITERIA": true,
+        "PRIORITY": true,
+        "BOUNDARIES": true
+      },
+      "definition_codes": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "definition_lines_restated_verbatim": [],
+      "words": {
+        "base": 855,
+        "credit": 159,
+        "financial_position": 151,
+        "savings": 160,
+        "spending": 163
+      },
+      "words_with_links": {
+        "base": 2030,
+        "credit": 439,
+        "financial_position": 389,
+        "savings": 443,
+        "spending": 459
+      }
+    },
+    "rubric_selfcheck": {
+      "clear_criteria": "CRITERIA C1-C5 in base_prompt_with_links and topic bullets in topic_advice_with_links state explicit, decidable conditions for violations and tolerated behaviors, referencing schema codes D1-D14.",
+      "clear_priorities": "PRIORITY in base_prompt_with_links specifies checking C1, C2, C3, C4, C5 in order, states the one-violation rule, resolves conflicts between user requests and C1/C2 in favor of C1/C2, and defaults to good when no criterion is violated.",
+      "links_to_training_examples": "Every criterion C1-C5, every boundary entry, and every topic-advice bullet carries inline [[ev: ...]] spans citing real training case IDs, gold labels, decisive figures/facts, and criterion numbers.",
+      "clear_boundaries": "BOUNDARIES in base_prompt_with_links documents three ambiguous/noisy regions (unspecified currency MXN, app deep links lnk_*, and statement interest warnings after paid_this_period covers no_interest_payment), each with contrasting good and bad links and explicit decision rules.",
+      "consistency_with_implementation": "The rules inTASK, CRITERIA C1-C5, PRIORITY, BOUNDARIES, and topic_advice_with_links are directly used as the compiled judge prompt without external weights or separate undocumented logic."
+    },
+    "accounted_entire_experiment_usd": 0.19773000000000002,
+    "updated_at": "2026-10-24T13:54:50.251857+00:00",
+    "artifact_sha256": "891bfb0ba986157623a5e8ab46afa183d2f285d283a6f09f4bbb8eee4cccc2da",
+    "linked_artifact_sha256": "d5a1cd1b06ee61b17b60eba3539fb873aded5659dc253c995933201ddcd2227d",
+    "routed_prompts_sha256": "42dae0e3309487b940557a0d26ce3b3185d0a5224e95b7ba34219586e1c8bae8"
+  },
+  "api_responses_this_run": 80,
+  "cost_usd_estimated_this_run": 1.08585,
+  "adaptation_reused": true,
+  "dataset_split": "test",
+  "evaluation_note": "fixed artifact evaluation",
+  "cost_note": "Equivalent pipeline cost includes the exp1 train analyses reused without new calls, both exp3 Argon requests and this evaluation; LiteLLM estimate, not invoice",
+  "accounted_usd_entire_experiment": 0.50289375,
+  "experiment_budget_usd": 10.0,
+  "input_tokens": 192065,
+  "output_tokens": 42964,
+  "updated_at": "2026-10-24T14:02:27.934476+00:00",
+  "macro_topic_accuracy": 0.9446640316205533,
+  "accuracy": 0.9375
+}

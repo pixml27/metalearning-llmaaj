@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "completed": 80,
+  "total": 80,
+  "api_responses_this_run": 80,
+  "cost_usd_estimated_this_run": 0.17897100000000002,
+  "accounted_usd_entire_experiment": 0.17897100000000002,
+  "experiment_budget_usd": 10.0,
+  "cost_note": "LiteLLM price estimate; failed requests retain conservative reservations",
+  "response_models": [
+    "gemini-3.8-flash"
+  ],
+  "input_tokens": 46913,
+  "output_tokens": 38343,
+  "updated_at": "2026-10-24T11:06:34.677053+00:00",
+  "macro_topic_accuracy": 0.7972496706192358,
+  "accuracy": 0.7875
+}

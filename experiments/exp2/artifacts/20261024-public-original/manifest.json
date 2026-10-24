@@ -1,0 +1,81 @@
+{
+  "experiment": "exp2",
+  "dataset_split": "train",
+  "n": 150,
+  "language": "original",
+  "train_sha256": "aedc2d323699a9ce41a0c0d3423297cdaa3dc8fd3ec9b0e965b9fbd5a84cccd5",
+  "baseline_predictions_sha256": "a8909be6893f1792765911f792e910d9ea3f5749bcf4d78bef4ab87683ab3eb7",
+  "baseline_manifest_sha256": "b0630af8a7cd09dddc4f58bd2b4cdb7f8afdb0b1cbc887b45002756894e944d5",
+  "baseline_prompt_sha256": "4edf31d028534fe04601699665acca68a337d7da282ffdbbd4df784edb0ec48b",
+  "definitions_sha256": "9cee72ba700a6e77b2e3156161056463d4b50f074ceef5ad3f02284955fc892f",
+  "synthesis_prompt_sha256": "6f5308c55ed1a50fb47a5aab2a0ccd97737c5e72675e505346d148fe56967525",
+  "reused_analyses": {
+    "analyses_directory": "/Users/akor/Work/Plata/metalearning-llmaaj/experiments/exp1/artifacts/20261024-public-original",
+    "analyses_sha256": "28afb858b9fe589a8f83b65d5fef2251a37ad8eb328ae519572dc22182505c65",
+    "analyses_manifest_sha256": "363dbeda8b5c6c66fdfa57fe609797ff65d3f5b8dc13c01158617eb6cd1ffff3",
+    "analysis_prompt_sha256": "35725d4e8d681fdaf3bd10baed1db05edbc5e99e817679a34c6d07bd1751b955",
+    "analysis_settings": {
+      "model": "gemini/gemini-flash-latest",
+      "budget_usd": 10.0,
+      "max_output_tokens": 3072,
+      "timeout_seconds": 120.0,
+      "temperature": 0.0
+    },
+    "analysis": {
+      "api_responses": 150,
+      "cost_usd_estimated": 0.5829562500000001,
+      "response_models": [
+        "gemini-3.8-flash"
+      ],
+      "input_tokens": 146630,
+      "output_tokens": 126129
+    }
+  },
+  "settings": {
+    "synthesis": {
+      "model": "gemini/gemini-4-argon",
+      "budget_usd": 10.0,
+      "max_output_tokens": 32768,
+      "timeout_seconds": 900.0,
+      "temperature": 0.0
+    },
+    "inference": {
+      "model": "gemini/gemini-flash-latest",
+      "budget_usd": 10.0,
+      "max_output_tokens": 2048,
+      "timeout_seconds": 120.0,
+      "temperature": 0.0
+    }
+  },
+  "prices": {
+    "synthesis": {
+      "input_usd_per_token_upper": 3.6e-06,
+      "output_usd_per_token_upper": 1.8e-05,
+      "source": "installed LiteLLM model cost map; estimate, not a provider invoice"
+    },
+    "inference": {
+      "input_usd_per_token_upper": 1.35e-06,
+      "output_usd_per_token_upper": 6.75e-06,
+      "source": "installed LiteLLM model cost map; estimate, not a provider invoice"
+    }
+  },
+  "source_sha256": {
+    "experiments/exp2/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "experiments/exp2/common.py": "a3b8325a69cffa3f3285d3308a41bd221ed2183beadb0d367df37fde72ee4065",
+    "experiments/exp2/infer.py": "e2379de61a8adaf2378dc4753540135f1b2f12a9f8dc5e965c9d7da4bf01d53e",
+    "experiments/exp2/train.py": "f7807dad0e0ce9fa42b9d820d5524595468ddd4f41c40f96cfcef05806533cd0",
+    "experiments/llm.py": "10556678b48a33b47b11f72e5bf7b60c349a91bf92da0f7989d81073e38237bc",
+    "src/common.py": "c5b915c28294f751ac2a65556971620a89e95486361ea97adc0073b444622442",
+    "src/evaluate.py": "b78193b9999ff06e9a8e467233f93143386ef81279f4aca3037dcc95ed59270e",
+    "src/prepare_inputs.py": "da279e48d9826911775135df948514d26867b108f714bd4a4fb92dc84a730026"
+  },
+  "packages": {
+    "litellm": "1.106.3",
+    "pydantic-ai-litellm": "0.2.8",
+    "pydantic-ai-slim": "2.61.0",
+    "pydantic": "2.14.1",
+    "python-dotenv": "1.2.4"
+  },
+  "config_sha256": "fdceee2eaba14615d8a93ca688923650a759ca1bb3d1867ec52abcf42c75995d",
+  "created_at": "2026-10-24T13:05:18.232739+00:00"
+}

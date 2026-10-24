@@ -1,0 +1,13 @@
+{
+  "dataset_split": "train",
+  "evaluation_note": "in-sample; same frozen artifact used for test",
+  "baseline_macro_topic_accuracy": 0.7387477718360071,
+  "exp1_macro_topic_accuracy": 0.9633838383838383,
+  "delta_macro_topic_accuracy": 0.2246360665478312,
+  "paired_outcomes": {
+    "fixed_baseline_error": 36,
+    "both_correct": 108,
+    "new_error": 2,
+    "both_wrong": 4
+  }
+}

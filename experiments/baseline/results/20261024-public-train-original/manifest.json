@@ -1,0 +1,59 @@
+{
+  "experiment": "baseline",
+  "settings": {
+    "model": "gemini/gemini-flash-latest",
+    "budget_usd": 10.0,
+    "max_output_tokens": 2048,
+    "timeout_seconds": 120.0,
+    "temperature": 0.0
+  },
+  "language": "original",
+  "dataset_split": "train",
+  "request_interval_seconds": 0,
+  "test_sha256": "aedc2d323699a9ce41a0c0d3423297cdaa3dc8fd3ec9b0e965b9fbd5a84cccd5",
+  "prompt_sha256": "4edf31d028534fe04601699665acca68a337d7da282ffdbbd4df784edb0ec48b",
+  "source_sha256": {
+    "experiments/baseline/infer.py": "f5378711a7c8276f2486fe1017950f74d656dae9941110ed49f7cd7ab9c42993",
+    "experiments/llm.py": "10556678b48a33b47b11f72e5bf7b60c349a91bf92da0f7989d81073e38237bc",
+    "src/evaluate.py": "b78193b9999ff06e9a8e467233f93143386ef81279f4aca3037dcc95ed59270e",
+    "src/common.py": "c5b915c28294f751ac2a65556971620a89e95486361ea97adc0073b444622442",
+    "src/prepare_inputs.py": "da279e48d9826911775135df948514d26867b108f714bd4a4fb92dc84a730026"
+  },
+  "packages": {
+    "litellm": "1.106.3",
+    "pydantic-ai-litellm": "0.2.8",
+    "pydantic-ai-slim": "2.61.0",
+    "pydantic": "2.14.1",
+    "python-dotenv": "1.2.4"
+  },
+  "prices": {
+    "input_usd_per_token_upper": 1.35e-06,
+    "output_usd_per_token_upper": 6.75e-06,
+    "source": "installed LiteLLM model cost map; estimate, not a provider invoice"
+  },
+  "structured_output": {
+    "additionalProperties": false,
+    "properties": {
+      "label": {
+        "enum": [
+          "good",
+          "bad"
+        ],
+        "title": "Label",
+        "type": "string"
+      }
+    },
+    "required": [
+      "label"
+    ],
+    "title": "Judgment",
+    "type": "object"
+  },
+  "n": 150,
+  "config_sha256": "9ac7180ee3981dabd78e5b4c7b2f4b474491c6aa9458d34c47b94f209c5f80fe",
+  "created_at": "2026-10-24T11:29:05.644275+00:00",
+  "git_commit": "5a57e4440e4bfaaacc3d35b566dbe180004ac585",
+  "dataset_path": "/Users/akor/Work/Plata/metalearning-llmaaj/data/public_train.csv",
+  "python": "3.12.6",
+  "note": "Hashes capture working files; commit may predate uncommitted experiment code"
+}

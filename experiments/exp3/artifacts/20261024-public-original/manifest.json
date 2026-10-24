@@ -1,0 +1,87 @@
+{
+  "experiment": "exp3",
+  "dataset_split": "train",
+  "n": 150,
+  "language": "original",
+  "train_sha256": "aedc2d323699a9ce41a0c0d3423297cdaa3dc8fd3ec9b0e965b9fbd5a84cccd5",
+  "baseline_predictions_sha256": "a8909be6893f1792765911f792e910d9ea3f5749bcf4d78bef4ab87683ab3eb7",
+  "baseline_manifest_sha256": "b0630af8a7cd09dddc4f58bd2b4cdb7f8afdb0b1cbc887b45002756894e944d5",
+  "baseline_prompt_sha256": "4edf31d028534fe04601699665acca68a337d7da282ffdbbd4df784edb0ec48b",
+  "definitions_sha256": "0cb34191cf9f62a913011c91a5040c4e705dddc970f86b83978e23525ff0343e",
+  "seed_prompt_sha256": "64760aa7e2af2a0a7ee11de8e2ed20df922a3642bceeba4360bf530b9d54e9d8",
+  "seed_sources": [
+    "experiments/exp1/artifacts/20261024-public-original/prompt.md",
+    "experiments/exp2/artifacts/20261024-public-original/prompt.md"
+  ],
+  "synthesis_prompt_sha256": "fa21465e6760752ec1737dc6e195509eae5879827974f560be7b33820d5819cb",
+  "strip_prompt_sha256": "983f9366e3c5bb02e217120833721fbcb93024d45b49116f1f74f061cb46f429",
+  "reused_analyses": {
+    "analyses_directory": "/Users/akor/Work/Plata/metalearning-llmaaj/experiments/exp1/artifacts/20261024-public-original",
+    "analyses_sha256": "28afb858b9fe589a8f83b65d5fef2251a37ad8eb328ae519572dc22182505c65",
+    "analyses_manifest_sha256": "363dbeda8b5c6c66fdfa57fe609797ff65d3f5b8dc13c01158617eb6cd1ffff3",
+    "analysis_prompt_sha256": "35725d4e8d681fdaf3bd10baed1db05edbc5e99e817679a34c6d07bd1751b955",
+    "analysis_settings": {
+      "model": "gemini/gemini-flash-latest",
+      "budget_usd": 10.0,
+      "max_output_tokens": 3072,
+      "timeout_seconds": 120.0,
+      "temperature": 0.0
+    },
+    "analysis": {
+      "api_responses": 150,
+      "cost_usd_estimated": 0.5829562500000001,
+      "response_models": [
+        "gemini-3.8-flash"
+      ],
+      "input_tokens": 146630,
+      "output_tokens": 126129
+    }
+  },
+  "settings": {
+    "synthesis": {
+      "model": "gemini/gemini-4-argon",
+      "budget_usd": 10.0,
+      "max_output_tokens": 32768,
+      "timeout_seconds": 900.0,
+      "temperature": 0.0
+    },
+    "inference": {
+      "model": "gemini/gemini-flash-latest",
+      "budget_usd": 10.0,
+      "max_output_tokens": 2048,
+      "timeout_seconds": 120.0,
+      "temperature": 0.0
+    }
+  },
+  "prices": {
+    "synthesis": {
+      "input_usd_per_token_upper": 3.6e-06,
+      "output_usd_per_token_upper": 1.8e-05,
+      "source": "installed LiteLLM model cost map; estimate, not a provider invoice"
+    },
+    "inference": {
+      "input_usd_per_token_upper": 1.35e-06,
+      "output_usd_per_token_upper": 6.75e-06,
+      "source": "installed LiteLLM model cost map; estimate, not a provider invoice"
+    }
+  },
+  "source_sha256": {
+    "experiments/exp3/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "experiments/exp3/common.py": "53938c930061f740892b20a44bdfc754333c0a1008ea4ecc8997a88802b46da9",
+    "experiments/exp3/infer.py": "27966ea7c73b7da57eb18ba7c415f1e8cc4d0813b7fac70baddddb5e86bbb766",
+    "experiments/exp3/train.py": "4eda011240e35e22d0e4f980da1200cceea226c297a6a5314cd45aed925ca597",
+    "experiments/llm.py": "10556678b48a33b47b11f72e5bf7b60c349a91bf92da0f7989d81073e38237bc",
+    "src/common.py": "c5b915c28294f751ac2a65556971620a89e95486361ea97adc0073b444622442",
+    "src/evaluate.py": "b78193b9999ff06e9a8e467233f93143386ef81279f4aca3037dcc95ed59270e",
+    "src/prepare_inputs.py": "da279e48d9826911775135df948514d26867b108f714bd4a4fb92dc84a730026"
+  },
+  "packages": {
+    "litellm": "1.106.3",
+    "pydantic-ai-litellm": "0.2.8",
+    "pydantic-ai-slim": "2.61.0",
+    "pydantic": "2.14.1",
+    "python-dotenv": "1.2.4"
+  },
+  "config_sha256": "2f27c9dc346b136b55a22d847504d5e0dc64c609079b6a09792e2fb0b5474405",
+  "created_at": "2026-10-24T13:51:56.091118+00:00"
+}

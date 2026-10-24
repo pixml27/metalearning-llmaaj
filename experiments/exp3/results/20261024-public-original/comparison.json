@@ -1,0 +1,80 @@
+{
+  "dataset_split": "test",
+  "macro_topic_accuracy": {
+    "baseline": 0.7972496706192358,
+    "exp1": 0.9229249011857708,
+    "exp2": 0.9224308300395256,
+    "exp3": 0.9446640316205533
+  },
+  "accuracy": {
+    "baseline": 0.7875,
+    "exp1": 0.9125,
+    "exp2": 0.9125,
+    "exp3": 0.9375
+  },
+  "delta_macro_topic_accuracy_vs_baseline": 0.14741436100131755,
+  "delta_macro_topic_accuracy_vs_exp1": 0.021739130434782594,
+  "paired_outcomes_vs_baseline": {
+    "both_correct": 62,
+    "both_wrong": 4,
+    "new_error": 1,
+    "fixed_baseline_error": 13
+  },
+  "paired_outcomes_vs_exp1": {
+    "both_correct": 73,
+    "both_wrong": 5,
+    "fixed_exp1_error": 2
+  },
+  "paired_outcomes_vs_exp2": {
+    "both_correct": 73,
+    "both_wrong": 5,
+    "fixed_exp2_error": 2
+  },
+  "delta_macro_topic_accuracy_vs_exp2": 0.022233201581027706,
+  "by_topic": {
+    "credit": {
+      "baseline": 0.8666666666666667,
+      "exp1": 1.0,
+      "exp2": 1.0,
+      "exp3": 1.0,
+      "correct_exp3": "15/15",
+      "paired_outcomes_vs_exp2": {
+        "both_correct": 15
+      }
+    },
+    "financial_position": {
+      "baseline": 0.8636363636363636,
+      "exp1": 0.9090909090909091,
+      "exp2": 0.8636363636363636,
+      "exp3": 0.9090909090909091,
+      "correct_exp3": "20/22",
+      "paired_outcomes_vs_exp2": {
+        "both_correct": 19,
+        "both_wrong": 2,
+        "fixed_exp2_error": 1
+      }
+    },
+    "savings": {
+      "baseline": 0.85,
+      "exp1": 1.0,
+      "exp2": 1.0,
+      "exp3": 1.0,
+      "correct_exp3": "20/20",
+      "paired_outcomes_vs_exp2": {
+        "both_correct": 20
+      }
+    },
+    "spending": {
+      "baseline": 0.6086956521739131,
+      "exp1": 0.782608695652174,
+      "exp2": 0.8260869565217391,
+      "exp3": 0.8695652173913043,
+      "correct_exp3": "20/23",
+      "paired_outcomes_vs_exp2": {
+        "both_wrong": 3,
+        "both_correct": 19,
+        "fixed_exp2_error": 1
+      }
+    }
+  }
+}

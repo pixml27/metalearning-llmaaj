@@ -1,0 +1,90 @@
+{
+  "n": 150,
+  "correct": 114,
+  "accuracy": 0.76,
+  "kappa": 0.45783132530120485,
+  "confusion_matrix": [
+    [
+      86,
+      4
+    ],
+    [
+      32,
+      28
+    ]
+  ],
+  "primary_metric": "macro_topic_accuracy",
+  "score": 0.7673425430778371,
+  "macro_topic_accuracy": 0.7673425430778371,
+  "macro_topic_kappa": 0.4813358903786033,
+  "confusion_matrix_order": [
+    "good",
+    "bad"
+  ],
+  "by_topic": {
+    "credit": {
+      "n": 36,
+      "correct": 34,
+      "accuracy": 0.9444444444444444,
+      "kappa": 0.8695652173913043,
+      "confusion_matrix": [
+        [
+          24,
+          0
+        ],
+        [
+          2,
+          10
+        ]
+      ]
+    },
+    "financial_position": {
+      "n": 36,
+      "correct": 25,
+      "accuracy": 0.6944444444444444,
+      "kappa": 0.29787234042553196,
+      "confusion_matrix": [
+        [
+          21,
+          0
+        ],
+        [
+          11,
+          4
+        ]
+      ]
+    },
+    "savings": {
+      "n": 34,
+      "correct": 27,
+      "accuracy": 0.7941176470588235,
+      "kappa": 0.5020920502092049,
+      "confusion_matrix": [
+        [
+          21,
+          1
+        ],
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    "spending": {
+      "n": 44,
+      "correct": 28,
+      "accuracy": 0.6363636363636364,
+      "kappa": 0.2558139534883721,
+      "confusion_matrix": [
+        [
+          20,
+          3
+        ],
+        [
+          13,
+          8
+        ]
+      ]
+    }
+  }
+}

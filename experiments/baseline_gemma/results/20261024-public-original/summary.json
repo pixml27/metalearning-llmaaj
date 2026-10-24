@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "completed": 80,
+  "total": 80,
+  "api_responses_this_run": 80,
+  "cost_usd_estimated_this_run": 0.0,
+  "accounted_usd_entire_experiment": 0.0,
+  "experiment_budget_usd": 10.0,
+  "cost_note": "LiteLLM price estimate; failed requests retain conservative reservations",
+  "response_models": [
+    "gemma-4-26b-a4b-it"
+  ],
+  "input_tokens": 46913,
+  "output_tokens": 475,
+  "updated_at": "2026-10-24T11:25:54.741025+00:00",
+  "macro_topic_accuracy": 0.7928194993412385,
+  "accuracy": 0.775
+}

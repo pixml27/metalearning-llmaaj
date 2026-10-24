@@ -1,0 +1,58 @@
+{
+  "experiment": "baseline_gemma",
+  "settings": {
+    "model": "gemini/gemma-4-26b-a4b-it",
+    "budget_usd": 10.0,
+    "max_output_tokens": 2048,
+    "timeout_seconds": 120.0,
+    "temperature": 0.0
+  },
+  "language": "original",
+  "test_sha256": "2554cc2cd86577d2c34317df2bca7d1f4b763d6a5d1e116c48b1832f52f2fbc9",
+  "prompt_sha256": "4edf31d028534fe04601699665acca68a337d7da282ffdbbd4df784edb0ec48b",
+  "source_sha256": {
+    "experiments/baseline/infer.py": "6ca74b8deabbfd157403ac11379cc34e94c16c9350d2b646279bc79b88cfb782",
+    "experiments/baseline_gemma/infer.py": "4c1235601338e25b953a7d5e65cce93bd72a54777fac331e546c516532218cd7",
+    "experiments/llm.py": "10556678b48a33b47b11f72e5bf7b60c349a91bf92da0f7989d81073e38237bc",
+    "src/evaluate.py": "b78193b9999ff06e9a8e467233f93143386ef81279f4aca3037dcc95ed59270e",
+    "src/common.py": "c5b915c28294f751ac2a65556971620a89e95486361ea97adc0073b444622442",
+    "src/prepare_inputs.py": "da279e48d9826911775135df948514d26867b108f714bd4a4fb92dc84a730026"
+  },
+  "packages": {
+    "litellm": "1.106.3",
+    "pydantic-ai-litellm": "0.2.8",
+    "pydantic-ai-slim": "2.61.0",
+    "pydantic": "2.14.1",
+    "python-dotenv": "1.2.4"
+  },
+  "prices": {
+    "input_usd_per_token_upper": 0.0,
+    "output_usd_per_token_upper": 0.0,
+    "source": "installed LiteLLM model cost map; estimate, not a provider invoice"
+  },
+  "structured_output": {
+    "additionalProperties": false,
+    "properties": {
+      "label": {
+        "enum": [
+          "good",
+          "bad"
+        ],
+        "title": "Label",
+        "type": "string"
+      }
+    },
+    "required": [
+      "label"
+    ],
+    "title": "Judgment",
+    "type": "object"
+  },
+  "n": 80,
+  "config_sha256": "3573c1593c5454541fee8893a81333e68355dad61e96ba2c30a417aa6750fb49",
+  "created_at": "2026-10-24T11:19:21.897025+00:00",
+  "git_commit": "5a57e4440e4bfaaacc3d35b566dbe180004ac585",
+  "dataset_path": "/Users/akor/Work/Plata/metalearning-llmaaj/data/public_test.csv",
+  "python": "3.12.6",
+  "note": "Hashes capture working files; commit may predate uncommitted experiment code"
+}

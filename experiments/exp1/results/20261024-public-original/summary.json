@@ -1,0 +1,55 @@
+{
+  "status": "complete",
+  "completed": 80,
+  "total": 80,
+  "response_models": [
+    "gemini-3.8-flash"
+  ],
+  "inference": {
+    "api_responses": 80,
+    "cost_usd_estimated": 0.19095525000000002,
+    "response_models": [
+      "gemini-3.8-flash"
+    ],
+    "input_tokens": 83292,
+    "output_tokens": 34263
+  },
+  "adaptation": {
+    "status": "complete",
+    "completed": 150,
+    "total": 150,
+    "analysis": {
+      "api_responses": 150,
+      "cost_usd_estimated": 0.5829562500000001,
+      "response_models": [
+        "gemini-3.8-flash"
+      ],
+      "input_tokens": 146630,
+      "output_tokens": 126129
+    },
+    "synthesis": {
+      "api_responses": 1,
+      "cost_usd_estimated": 0.093224,
+      "response_models": [
+        "gemini-4-argon"
+      ],
+      "input_tokens": 39462,
+      "output_tokens": 1430
+    },
+    "cost_usd_estimated": 0.67618025,
+    "artifact_sha256": "d9b4dde7470a844ad8c4f29d734400dc3ec38270487ff916a9f93c1a7ba6096f",
+    "routed_prompts_sha256": "940d3fa50606b89692ac6d97c75bdbab79a006a43e6db3b398750f74dbb67657",
+    "accounted_entire_experiment_usd": 0.67618025,
+    "updated_at": "2026-10-24T11:59:06.928808+00:00"
+  },
+  "api_responses_this_run": 80,
+  "cost_usd_estimated_this_run": 0.8671355000000001,
+  "cost_note": "Exp1 cost includes analysis + synthesis + this test run; LiteLLM estimate, not invoice",
+  "accounted_usd_entire_experiment": 0.8671355000000001,
+  "experiment_budget_usd": 10.0,
+  "input_tokens": 83292,
+  "output_tokens": 34263,
+  "updated_at": "2026-10-24T12:06:24.813091+00:00",
+  "macro_topic_accuracy": 0.9229249011857708,
+  "accuracy": 0.9125
+}
