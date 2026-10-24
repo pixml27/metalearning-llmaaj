@@ -10,7 +10,8 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from experiments.exp1.common import *
-from experiments.llm import Judgment, judge_one, make_judge
+from experiments.llm import Judgment
+from experiments.inference import add_inference_arguments, run_judgments
 from experiments.update_results import update_results
 
 
@@ -37,6 +38,7 @@ async def run(args):
     prices = prices_for(settings.model)
     config = {"experiment": "exp1", "dataset_split": split, "n": len(inputs), "language": args.language,
               "settings": asdict(settings), "prices": prices, "packages": packages(),
+              "concurrency": args.concurrency, "request_interval_seconds": args.request_interval,
               "dataset_path": str(dataset), "test_sha256": digest(dataset.read_bytes()),
               "prompt_sha256": digest(bundle), "artifact_directory": str(args.artifacts.resolve()),
               "artifact_sha256": digest((args.artifacts / "artifact.json").read_bytes()),
@@ -66,7 +68,6 @@ async def run(args):
     if args.dry_run:
         return
     budget.require(upper)
-    agents = {t: make_judge(prompts[t], settings, budget, calls_path, output.name, prices) for t in TOPICS}
 
     def summarize(report=None):
         inference = cost_summary([calls_path])
@@ -88,13 +89,15 @@ async def run(args):
 
     if predictions:
         save_predictions(predictions_path, inputs, predictions)
-    for row in selected:
-        agent, model = agents[row["topic"]]
-        result = await judge_one(agent, model, row)
+    def save_result(row, result):
         predictions[row["item_id"]] = result.label
         save_predictions(predictions_path, inputs, predictions)
         summarize()
         print(f"inference {len(predictions)}/{len(inputs)} {row['topic']} {row['item_id']} {result.label} experiment_usd={budget.used():.6f}", flush=True)
+
+    await run_judgments(selected, prompt_for=lambda row: prompts[row["topic"]], settings=settings,
+                        budget=budget, calls_path=calls_path, run_id=output.name, prices=prices,
+                        on_result=save_result, concurrency=args.concurrency, interval=args.request_interval)
     report = None
     if len(predictions) == len(inputs):
         gold = load_dataset(dataset, require_labels=True)
@@ -119,6 +122,7 @@ def main():
     parser.add_argument("--split", choices=["train", "test"], help="Inferred for public_train.csv and public_test.csv")
     parser.add_argument("--run-dir", type=Path, default=HERE / "runs/20261024-public-original")
     parser.add_argument("--language", choices=["original", "en", "es"], default="original")
+    add_inference_arguments(parser)
     parser.add_argument("--limit", type=int)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()

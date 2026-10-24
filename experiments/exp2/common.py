@@ -67,7 +67,7 @@ def stage_settings() -> dict[str, Settings]:
 
 
 def source_hashes() -> dict:
-    paths = [*HERE.glob("*.py"), REPO / "experiments/llm.py", REPO / "src/common.py",
+    paths = [*HERE.glob("*.py"), REPO / "experiments/llm.py", REPO / "experiments/inference.py", REPO / "src/common.py",
              REPO / "src/evaluate.py", REPO / "src/prepare_inputs.py"]
     return {str(p.relative_to(REPO)): digest(p.read_bytes()) for p in sorted(paths)}
 

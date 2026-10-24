@@ -13,7 +13,6 @@ import json
 import os
 import subprocess
 import sys
-import time
 
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO))
@@ -21,8 +20,9 @@ sys.path.insert(0, str(REPO / "src"))
 from common import load_dataset, load_labels
 from evaluate import score
 from prepare_inputs import model_rows
-from experiments.llm import (Budget, Judgment, Settings, digest, judge_one, make_judge,
+from experiments.llm import (Budget, Judgment, Settings, digest,
                              prices_for, request_ceiling, utc_now, write_json)
+from experiments.inference import add_inference_arguments, cached_judgments, run_judgments
 from experiments.update_results import update_results
 
 HERE = Path(__file__).resolve().parent
@@ -72,10 +72,10 @@ async def run(args) -> None:
     budget = Budget(here / ".budget.jsonl", settings.budget_usd)
     config = {"experiment": args.experiment_name, "settings": asdict(settings), "language": args.language,
               "dataset_split": args.split or {"public_train.csv": "train", "public_test.csv": "test"}.get(dataset.name, "evaluation"),
-              "request_interval_seconds": args.request_interval,
+              "request_interval_seconds": args.request_interval, "concurrency": args.concurrency,
               "test_sha256": digest(dataset.read_bytes()), "prompt_sha256": digest(prompt),
               "source_sha256": {str(p.relative_to(REPO)): digest(p.read_bytes()) for p in
-                                dict.fromkeys([Path(__file__).resolve(), args.entrypoint, REPO / "experiments/llm.py",
+                                dict.fromkeys([Path(__file__).resolve(), args.entrypoint, REPO / "experiments/llm.py", REPO / "experiments/inference.py",
                                                REPO / "src/evaluate.py", REPO / "src/common.py", REPO / "src/prepare_inputs.py"])},
               "packages": {p: version(p) for p in ["litellm", "pydantic-ai-litellm", "pydantic-ai-slim", "pydantic", "python-dotenv"]},
               "prices": prices, "structured_output": Judgment.model_json_schema(), "n": len(inputs)}
@@ -97,6 +97,7 @@ async def run(args) -> None:
     prediction_path = run_dir / "predictions.csv"
     existing = load_labels(prediction_path) if prediction_path.exists() else []
     predictions = {p["item_id"]: p["label"] for p in existing}
+    predictions.update({iid: value.label for iid, value in cached_judgments(run_dir / "calls.jsonl").items()})
     expected = {r["item_id"] for r in inputs}
     if not set(predictions) <= expected:
         raise ValueError("Saved predictions contain unknown IDs")
@@ -116,17 +117,18 @@ async def run(args) -> None:
     if selected:
         if settings.model.startswith("gemini/") and not os.getenv("GEMINI_API_KEY"):
             raise ValueError("GEMINI_API_KEY is missing from the environment/.env")
-        agent, model = make_judge(prompt, settings, budget, run_dir / "calls.jsonl", run_dir.name, prices)
-        last_started = None
-        for row in selected:
-            if last_started is not None:
-                await asyncio.sleep(max(0, args.request_interval - (time.monotonic() - last_started)))
-            last_started = time.monotonic()
-            result = await judge_one(agent, model, row)
+        def save_result(row, result):
             predictions[row["item_id"]] = result.label
             save_predictions(prediction_path, inputs, predictions)
             summarize(run_dir, budget, len(inputs), len(predictions))
             print(f"{len(predictions)}/{len(inputs)} {row['item_id']} {result.label} experiment_usd={budget.used():.6f}", flush=True)
+
+        await run_judgments(selected, prompt_for=lambda row: prompt, settings=settings,
+                            budget=budget, calls_path=run_dir / "calls.jsonl", run_id=run_dir.name,
+                            prices=prices, on_result=save_result, concurrency=args.concurrency,
+                            interval=args.request_interval)
+    if predictions:
+        save_predictions(prediction_path, inputs, predictions)
     report = None
     if len(predictions) == len(inputs):
         # Reload gold only for scoring; all model calls have already finished.
@@ -144,7 +146,7 @@ def main(*, experiment_dir: Path = HERE, experiment_name: str = "baseline",
     parser.add_argument("--dataset", "--test", dest="test", type=Path, default=REPO / "data/public_test.csv",
                         help="Labeled evaluation dataset; gold is never sent to the model")
     parser.add_argument("--split", choices=["train", "test"], help="Table label; inferred for public_train.csv/public_test.csv")
-    parser.add_argument("--request-interval", type=float, default=0, help="Minimum seconds between request starts; does not change model parameters")
+    add_inference_arguments(parser)
     parser.add_argument("--language", choices=["original", "en", "es"], default="original")
     parser.add_argument("--run-dir", type=Path, default=experiment_dir / "runs" / datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     parser.add_argument("--limit", type=int, help="New API requests this invocation; same --run-dir resumes")
@@ -154,8 +156,6 @@ def main(*, experiment_dir: Path = HERE, experiment_name: str = "baseline",
     args.expected_model, args.entrypoint = expected_model, entrypoint
     if args.limit is not None and args.limit < 0:
         parser.error("--limit must be nonnegative")
-    if not 0 <= args.request_interval < float("inf"):
-        parser.error("--request-interval must be finite and nonnegative")
     try:
         with (experiment_dir / ".run.lock").open("a") as lock:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)

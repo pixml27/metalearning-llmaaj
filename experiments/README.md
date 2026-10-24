@@ -12,6 +12,19 @@
 
 В таблицах train и test указаны отдельно. Оценка на train использует тот же zero-shot промпт без обучения и без gold в запросе; все 150 строк идут только как вход для предсказаний. Для выбора файла поддерживается `--dataset` (старый `--test` остаётся алиасом). `--request-interval` ограничивает частоту запросов, не меняя параметры модели.
 
+Judge inference in baseline, baseline_gemma and exp1–exp3 now defaults to **3 concurrent requests**. Use `--concurrency 1` for sequential execution or `--concurrency 2` for a lower load. `--request-interval SECONDS` applies globally across all workers; the default is 0. Concurrency and spacing are recorded in the manifest. Prompts, model parameters, schemas and retry policy are unchanged. Three concurrent requests target roughly 3× throughput; actual gains depend on latency and provider quotas.
+
+Each request owns its model state. Results are saved individually in dataset order, even when API responses arrive out of order. On failure, no new requests start; requests already sent are allowed to finish and successful responses are saved before the error is reported. Completed responses are recovered from the journal on resume, including in baseline. Use a **new `--run-dir`** for this code version; existing manifests and published results are preserved. `--limit` counts new requests, so a smoke test and its continuation can share one run directory.
+
+```sh
+# One real smoke request, then up to 11 more in the same partial run (12 total).
+.venv/bin/python experiments/exp3/infer.py --run-dir experiments/exp3/runs/concurrency-smoke --limit 1
+.venv/bin/python experiments/exp3/infer.py --run-dir experiments/exp3/runs/concurrency-smoke --limit 11
+
+# Offline checks for ID/label alignment, budgets, errors, cancellation and resume.
+.venv/bin/python -m unittest experiments.test_inference experiments.test_llm
+```
+
 ```text
 experiments/
   AGENTS.md                 # бюджет, секреты, формат и воспроизводимость
