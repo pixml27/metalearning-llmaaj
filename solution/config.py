@@ -32,7 +32,7 @@ class Config:
     explanation: Settings
     budget_usd: float = 25.0
     concurrency: int = 3
-    request_interval_seconds: float = 4.1
+    request_interval_seconds: float = 1.0
     max_attempts: int = 4
     retry_backoff_seconds: float = 5.0
 
@@ -70,6 +70,6 @@ class Config:
         return cls(inference, analysis, synthesis, explanation,
                    budget_usd=float(os.getenv("RUN_BUDGET_USD", "25")),
                    concurrency=int(os.getenv("MAX_CONCURRENCY", "3")),
-                   request_interval_seconds=float(os.getenv("REQUEST_INTERVAL_SECONDS", "4.1")),
+                   request_interval_seconds=float(os.getenv("REQUEST_INTERVAL_SECONDS", "1")),
                    max_attempts=int(os.getenv("MAX_ATTEMPTS", "4")),
                    retry_backoff_seconds=float(os.getenv("RETRY_BACKOFF_SECONDS", "5")))
