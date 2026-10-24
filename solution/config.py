@@ -60,7 +60,9 @@ class Config:
         )
         analysis = replace(inference, model=os.getenv("ANALYSIS_MODEL", inference.model),
                            max_output_tokens=int(os.getenv("ANALYSIS_MAX_OUTPUT_TOKENS", "3072")))
-        synthesis = replace(inference, model=os.getenv("SYNTHESIS_MODEL", "gemini/gemini-4-argon"),
+        # One name for the stronger model that learns the prompts; per-stage overrides stay available.
+        meta = os.getenv("META_MODEL", "gemini/gemini-4-argon")
+        synthesis = replace(inference, model=os.getenv("SYNTHESIS_MODEL", meta),
                             max_output_tokens=int(os.getenv("SYNTHESIS_MAX_OUTPUT_TOKENS", "32768")),
                             timeout_seconds=float(os.getenv("SYNTHESIS_TIMEOUT_SECONDS", "900")))
         explanation = replace(synthesis, model=os.getenv("EXPLANATION_MODEL", synthesis.model),

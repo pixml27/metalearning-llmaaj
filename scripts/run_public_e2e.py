@@ -66,7 +66,8 @@ def main():
               "SYNTHESIS_MAX_OUTPUT_TOKENS": str(config.synthesis.max_output_tokens),
               "SYNTHESIS_TIMEOUT_SECONDS": str(config.synthesis.timeout_seconds), "EXPLANATION_MODEL": config.explanation.model,
               "EXPLANATION_MAX_OUTPUT_TOKENS": str(config.explanation.max_output_tokens), "RUN_BUDGET_USD": str(config.budget_usd),
-              "MAX_CONCURRENCY": str(config.concurrency), "REQUEST_INTERVAL_SECONDS": str(config.request_interval_seconds)}
+              "MAX_CONCURRENCY": str(config.concurrency), "REQUEST_INTERVAL_SECONDS": str(config.request_interval_seconds),
+              "MAX_ATTEMPTS": str(config.max_attempts), "RETRY_BACKOFF_SECONDS": str(config.retry_backoff_seconds)}
     environment = {**os.environ, **values}
     keys = [key for key in ("GEMINI_API_KEY", "GOOGLE_API_KEY") if os.getenv(key)]
     # -e KEY forwards the value from this process without putting it in command arguments/logs.

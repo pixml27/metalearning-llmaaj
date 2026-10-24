@@ -199,7 +199,7 @@ cp .env.example .env
 
 If `.env` already exists, add the settings you need without replacing it. `requirements.txt` lists direct dependencies; `requirements.lock.txt` pins the full dependency set used by Docker.
 
-Configuration precedence is the process environment, `solution/.env`, repository `.env`, then workspace `../.env`. No experiment `.env` files are read. The key is passed to LiteLLM through the environment and is never written to manifests. `.env.example` documents all settings. Keep the same judge model and inference parameters for `adapt` and `eval`; a mismatch is rejected. Language selection happens in `src/prepare_inputs.py` before either command.
+Configuration precedence is the process environment, `solution/.env`, repository `.env`, then workspace `../.env`. No experiment `.env` files are read. The key is passed to LiteLLM through the environment and is never written to manifests. `.env.example` documents all settings. `MODEL` is the judge used by both commands. `META_MODEL` is the stronger model that learns the prompts during `adapt` — synthesis, evidence stripping and the jury explanation — and is never used at prediction time; `SYNTHESIS_MODEL` and `EXPLANATION_MODEL` override it per stage, and `ANALYSIS_MODEL` defaults to the judge. Keep the same judge model and inference parameters for `adapt` and `eval`; a mismatch is rejected. Language selection happens in `src/prepare_inputs.py` before either command.
 
 `RUN_BUDGET_USD` defaults to 10 and covers adaptation plus one evaluation, including failed attempts and resumed requests. Prices come from the pinned LiteLLM snapshot; they are estimates, not invoices. Each stage estimates pending requests before execution. Unknown prices stop execution. Requests have explicit token/time limits. `MAX_CONCURRENCY` and `REQUEST_INTERVAL_SECONDS` control simultaneous requests and spacing between request starts.
 
@@ -251,13 +251,18 @@ The entry point is `python -m solution`. Defaults are `/input/train.jsonl` for `
 
 ```text
 /artifacts/
-  artifact.json                 # shared base_prompt + four topic_advice texts
+  artifact.json                 # deployed prompt: shared base_prompt + four topic_advice texts
   routed_prompts.json           # exact compiled inference prompt per topic
+  definitions.md                # fixed definitions appended to every judge prompt
+  linked_artifact.json          # synthesized prompt before its evidence spans were removed
+  link_report.json              # evidence links found in the synthesized prompt
+  strip_report.json             # evidence removal, remaining training IDs and rule preservation
   explanation.md                # jury explanation with real train evidence
   explanation.json              # validated explanation structure
   baseline_predictions.csv
   analyses.jsonl
   synthesis_input.json
+  strip_input.json
   explanation_input.json
   *_prompt.md                   # exact adaptation prompt templates
   *_calls.jsonl                 # model names, raw responses, tokens and estimated costs
@@ -268,7 +273,7 @@ The entry point is `python -m solution`. Defaults are `/input/train.jsonl` for `
   .run.lock                     # prevents conflicting writers
 ```
 
-`eval` consumes `/artifacts` read-only and writes `predictions.csv`, request/budget journals, a manifest, progress and summary under `/output`. It requires only the saved prediction/explanation artifacts, adaptation manifest/summary, budget and lock file; the original train input and analysis caches are not needed for prediction.
+`eval` consumes `/artifacts` read-only and writes `predictions.csv`, request/budget journals, a manifest, progress and summary under `/output`. It requires the saved prediction artifacts (`artifact.json`, `routed_prompts.json`, `definitions.md`, `linked_artifact.json`), the explanation pair, the adaptation manifest/summary, budget and lock file; the original train input and analysis caches are not needed for prediction. The saved definitions must match the runtime copy, so `eval` runs from the same image as `adapt`.
 
 After a failure, rerun the same command with the same directories, inputs and configuration. Matching successful structured responses are recovered from journals; unfinished or invalid requests can be retried. A timeout or server-side failure can still have been billed, so its budget reservation is retained; a request the provider rejected before generating tokens (rate limit, 4xx) releases its reservation, so retries keep their headroom. Changes to input bytes, model parameters, runtime sources or dependency versions require a fresh output directory. Completed adaptation is checked and reused without new requests. Artifact hashes and compiled prompt consistency are verified before prediction.
 

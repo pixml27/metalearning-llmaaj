@@ -27,8 +27,25 @@ PRICES = {"input_usd_per_token_upper": 0.0000001, "output_usd_per_token_upper": 
 
 
 def artifact_value():
-    return {"base_prompt": "Evaluate all assistant responses. One supported violation makes the conversation bad.",
+    """The stripped prompt actually deployed for prediction: sections, one criterion code, no evidence."""
+    return {"base_prompt": "TASK\nEvaluate all assistant responses. One supported violation makes the conversation bad."
+                           "\nCRITERIA\nC1 Compare every assistant turn with the supplied context."
+                           "\nPRIORITY\nC1 outweighs completeness.\nBOUNDARIES\nRounding alone is not a violation.",
             "topic_advice": {topic: f"Apply only the {topic} criterion." for topic in TOPICS}}
+
+
+def linked_value():
+    """The synthesis answer: the same rules plus evidence spans the strip stage must remove."""
+    stripped = artifact_value()
+    return {"base_prompt_with_links": stripped["base_prompt"]
+                                      + " [[ev: train-0 | good | the balance answer matches the context | C1]]",
+            "topic_advice_with_links": {topic: text + " [[ev: train-1 | bad | the total contradicts the context | C1]]"
+                                        for topic, text in stripped["topic_advice"].items()},
+            "rubric_selfcheck": {"clear_criteria": "C1 states one observable condition.",
+                                 "clear_priorities": "PRIORITY orders C1 above completeness.",
+                                 "links_to_training_examples": "Each part cites one labeled train case.",
+                                 "clear_boundaries": "BOUNDARIES names the tolerated case.",
+                                 "consistency_with_implementation": "Stripping keeps C1 and the sections verbatim."}}
 
 
 def explanation_value():
@@ -62,6 +79,7 @@ class FakeProvider:
         self.fail_once_at = None
         self.invalid_judge = False
         self.invalid_explanation = False
+        self.leaky_strip = False
 
     async def complete(self, **kwargs):
         self.requests.append(kwargs)
@@ -73,8 +91,12 @@ class FakeProvider:
         elif "comment_a" in fields:
             value = {"comment_a": "Compare the observable claim with gold; baseline reasoning is unavailable.",
                      "comment_b": "Check only supported topic-specific conditions."}
+        elif "base_prompt_with_links" in fields:
+            value = linked_value()
         elif "base_prompt" in fields:
             value = artifact_value()
+            if self.leaky_strip:
+                value["base_prompt"] += " [[ev: train-0 | good | kept by mistake | C1]]"
         else:
             value = explanation_value()
             if self.invalid_explanation:
@@ -117,7 +139,7 @@ class PipelineTests(unittest.IsolatedAsyncioTestCase):
     async def test_complete_pipeline_with_isolated_read_only_artifacts_and_exact_routes(self):
         result = await self.adapt()
         self.assertEqual(result["status"], "complete")
-        self.assertEqual(self.api.await_count, 10)  # 4 baseline + 4 audits + synthesis + explanation
+        self.assertEqual(self.api.await_count, 11)  # 4 baseline + 4 audits + synthesis + strip + explanation
         analyses = [json.loads(line) for line in (self.artifacts / "analyses.jsonl").read_text().splitlines()]
         self.assertEqual(len(analyses), 4)
         self.assertEqual(sum(not row["baseline_correct"] for row in analyses), 2)
@@ -132,7 +154,8 @@ class PipelineTests(unittest.IsolatedAsyncioTestCase):
         isolated = self.root / "isolated"
         isolated.mkdir()
         for name in ("artifact.json", "routed_prompts.json", "explanation.json", "explanation.md",
-                     "manifest.json", "summary.json", "budget.jsonl", ".run.lock"):
+                     "manifest.json", "summary.json", "budget.jsonl", ".run.lock",
+                     "linked_artifact.json", "definitions.md"):
             shutil.copyfile(self.artifacts / name, isolated / name)
         self.train.unlink()
         before = {path.name: path.read_bytes() for path in isolated.iterdir()}
@@ -173,7 +196,7 @@ class PipelineTests(unittest.IsolatedAsyncioTestCase):
         used = Budget(self.artifacts / "budget.jsonl", 10).used()
         self.assertGreater(used, 0.000001)  # the failed attempt retains its reservation
         await self.adapt()
-        self.assertEqual(self.api.await_count, 11)  # only the failed attempt is repeated
+        self.assertEqual(self.api.await_count, 12)  # only the failed attempt is repeated
         count = self.api.await_count
         await self.adapt()
         self.assertEqual(self.api.await_count, count)
@@ -185,7 +208,7 @@ class PipelineTests(unittest.IsolatedAsyncioTestCase):
             await self.predict()
         self.assertFalse((self.output / "predictions.csv").exists())
         await self.predict()
-        self.assertEqual(self.api.await_count, 15)
+        self.assertEqual(self.api.await_count, 16)
         self.assertEqual(json.loads((self.output / "summary.json").read_text())["status"], "complete")
 
     async def test_changed_inputs_and_config_reject_old_caches_before_requests(self):
@@ -243,6 +266,20 @@ class PipelineTests(unittest.IsolatedAsyncioTestCase):
         await self.adapt()
         self.assertEqual(self.api.await_count, count + 1)
 
+    async def test_leaked_training_evidence_stops_adaptation_before_the_artifact(self):
+        self.provider.leaky_strip = True
+        with self.assertRaisesRegex(ValueError, "training evidence"):
+            await self.adapt()
+        self.assertFalse((self.artifacts / "artifact.json").exists())
+        self.assertTrue((self.artifacts / "strip_failure.json").exists())
+        count = self.api.await_count
+        self.provider.leaky_strip = False
+        await self.adapt()
+        self.assertEqual(self.api.await_count, count + 2)  # the rejected strip and then the explanation
+        self.assertFalse((self.artifacts / "strip_failure.json").exists())
+        prompts = json.loads((self.artifacts / "routed_prompts.json").read_text())
+        self.assertFalse(any("[[ev:" in prompt or "train-" in prompt for prompt in prompts.values()))
+
     async def test_dry_run_does_not_write_or_call_api(self):
         await adapt.run(self.train, self.artifacts, self.config, dry_run=True)
         self.assertFalse(self.artifacts.exists())
@@ -264,7 +301,7 @@ class PipelineTests(unittest.IsolatedAsyncioTestCase):
     async def test_concurrent_requests_and_missing_usage_fail_without_default_labels(self):
         self.config = replace(self.config, concurrency=3)
         await self.adapt()
-        self.assertEqual(self.api.await_count, 10)
+        self.assertEqual(self.api.await_count, 11)
         original = self.provider.complete
 
         async def missing_usage(**kwargs):

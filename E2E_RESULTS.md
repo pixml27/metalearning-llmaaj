@@ -1,5 +1,7 @@
 # Docker E2E verification — 24 October 2026
 
+**This record describes the earlier exp1-based pipeline** (artifact version 1, four adaptation stages). The repository now ships the exp3 pipeline with the seed prompt, fixed definitions, evidence links and a separate stripping stage, so the metrics, source hashes and test count below belong to image `metalearning-judge:e2e-20261024` and not to the current sources. A verification of the current pipeline will replace this section.
+
 The Docker build and complete public `adapt → eval → official scorer` pipeline passed on `linux/arm64` using Colima. Adaptation started with an empty artifacts directory and processed all 150 public training examples. A separate evaluation container received only the 80 unlabeled test examples and read-only adaptation artifacts. The official scorer accepted exactly 80 predictions.
 
 Image: `metalearning-judge:e2e-20261024`.
@@ -40,12 +42,12 @@ All 382 requests completed without API errors or retries. Costs are LiteLLM esti
 ## Verified behavior
 
 - All 68 locked dependencies installed in the Docker build. The image contains only runtime sources, prompt templates and the lock; no `.env`, data or experiment artifacts are included.
-- All 17 solution tests passed inside the built image with networking disabled.
+- All 17 solution tests of that revision passed inside the built image with networking disabled.
 - The synthesis input contains all 150 labeled train analyses. No test examples or test labels are used during adaptation.
 - `eval` ran in a new container with only `test.jsonl` mounted as input. The artifacts mount was read-only, and every adaptation file remained byte-identical afterward.
 - The generated jury explanation contains 12 criteria, 5 boundaries and references to 73 real training examples covering all four topics and both labels. All prompt quotes and referenced IDs passed validation.
 - A second complete invocation with the same image, configuration and run directory made **zero additional API attempts** and produced byte-identical predictions.
-- Source hashes from the tested image match the current runtime source files.
+- Source hashes recorded in the validation record are the ones from that tested image.
 
 ## Reproduction and saved evidence
 
