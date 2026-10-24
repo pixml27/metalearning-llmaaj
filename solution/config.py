@@ -30,7 +30,7 @@ class Config:
     analysis: Settings
     synthesis: Settings
     explanation: Settings
-    budget_usd: float = 10.0
+    budget_usd: float = 25.0
     concurrency: int = 3
     request_interval_seconds: float = 4.1
     max_attempts: int = 4
@@ -68,7 +68,7 @@ class Config:
         explanation = replace(synthesis, model=os.getenv("EXPLANATION_MODEL", synthesis.model),
                               max_output_tokens=int(os.getenv("EXPLANATION_MAX_OUTPUT_TOKENS", "16384")))
         return cls(inference, analysis, synthesis, explanation,
-                   budget_usd=float(os.getenv("RUN_BUDGET_USD", "10")),
+                   budget_usd=float(os.getenv("RUN_BUDGET_USD", "25")),
                    concurrency=int(os.getenv("MAX_CONCURRENCY", "3")),
                    request_interval_seconds=float(os.getenv("REQUEST_INTERVAL_SECONDS", "4.1")),
                    max_attempts=int(os.getenv("MAX_ATTEMPTS", "4")),
